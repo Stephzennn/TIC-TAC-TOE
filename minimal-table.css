@@ -94,13 +94,17 @@ fieldset{
   form {
     display: flex;
     /* Form outline */
-    padding: 3%;
+    
     border: 1px solid #c5ac84 ;
     border-radius: 1em;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding: 20px;
     flex-direction: column;
     flex-wrap: wrap;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+
   }
   ul {
     list-style: none;
@@ -117,7 +121,8 @@ fieldset{
   label {
     /* Uniform size & alignment */
     display: inline-block;
-    
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: right;
   }
 
@@ -127,7 +132,7 @@ textarea {
      By default, textareas have a monospace font */
   font: 1em sans-serif;
   /* Uniform text field size */
-  width: 300px;
+  min-width: 100px;
   box-sizing: border-box;
   /* Match form field borders */
   border: 1px solid #999;
@@ -162,12 +167,224 @@ transform: rotate(360deg);
   filter: brightness(300%); 
     filter: brightness(150%); 
 
-      @font-face {
-    font-family: my-cool-font;
-    src: url(../Sand_Dunes.otf);
-  }
+      
   @font-face {
     font-family: Amharic_font;
     src: url(../tint.ttf);
   }
 */
+
+
+@font-face {
+  font-family: my-cool-font;
+  src: url(./Angeline\ Vintage_Demo.otf);
+}
+
+body{
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 7fr 4fr 9fr;
+}
+
+body,.State1 {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-rows: 7fr 4fr 9fr;
+  
+}
+
+body,.State2{
+  color: white;
+}
+
+body,.State2_1{
+  color: red;
+  grid-template-columns: 2fr 5fr 2fr;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+
+
+:root {
+  --color-shade-1: #A07855FF; /* Replace with your preferred color */
+}
+
+
+:root {
+  --color-shade-2: #D4B996FF; /* Replace with your preferred color */
+}
+
+.title {
+  font-family: my-cool-font;
+  border: var(--color-shade-1) solid;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: var(--color-shade-2);
+  
+}
+
+.State1>.title {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  
+}
+
+.State2>.title{
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.State2_1>.title{
+  grid-column: 2/3;
+  grid-row: 1/2;
+  font-size: 50px;
+}
+
+
+
+
+
+
+.State1>.playGame{
+  grid-row: 3/-1;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  padding: 20%;
+}
+.State1>.playGame>button {
+  border-radius: 15px;
+  border-color: black solid;
+  font-size: 35px;
+  min-height: 60%;
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+
+
+
+
+.playGame{
+  grid-row: 3/-1;
+  grid-column: 2/3;
+  display: flex;
+  flex-direction: column;
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  
+}
+
+.State2>.playGame.show {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
+}
+
+
+.State2>.State2LowerBox{
+  grid-row: 3/-1;
+  grid-column: 2/3;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 20%;
+}
+
+.State2LowerBox{
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+}
+
+.State2>.State2LowerBox>.against {
+  padding-top: 5%;
+  
+  color: #000;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 30px;
+}
+
+.State2LowerBox>.against {
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+}
+
+
+.State2>.State2LowerBox>.playervspc{
+  
+  font-size: 30px;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+}
+.State2LowerBox>.playervspc{
+  
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+}
+
+
+.State2>.State2LowerBox>.playervspc>button{
+  border-radius: 15px;
+  border-color: white;
+  font-size: 35px;
+  min-height: 60%;
+  min-width: 40%;
+  background-color: #000;
+  color: white;
+  font-weight: bold;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.State2LowerBox>.playervspc>button{
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+}
+
+.containerPlayer {
+  border: #000 solid;
+  flex-wrap: wrap;
+  grid-row: 2/3;
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+
+
+.containerPlayer>.player1{
+  border: red solid;
+}
+.containerPlayer>.player2{
+  border: red solid;
+}
+
+#Brown{
+  color: var(--color-shade-1);
+  font-weight: bold;
+}
+
+#Black{
+  color:#000;
+  font-weight: bold;
+}

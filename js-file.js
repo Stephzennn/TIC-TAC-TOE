@@ -497,10 +497,50 @@ newgame = Game(1)
 console.log(pcplayer.move(newgame))
 newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
 newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+
 newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+
 newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
-newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
-newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+console.log(newgame.checkWin())
+
 console.log(newgame.getArray())
 
 
+document.getElementById("O").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("O").checked == true){
+        document.getElementById("X").checked = false
+    }
+    
+})
+
+
+document.getElementById("X").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("X").checked == true){
+        document.getElementById("O").checked = false
+    }
+   
+})
+
+
+
+
+document.getElementById("Brown").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("Brown").checked == true){
+        document.getElementById("Black").checked = false
+    }
+    
+})
+
+
+document.getElementById("Black").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("Black").checked == true){
+        document.getElementById("Brown").checked = false
+    }
+   
+})
+
+console.log(document.getElementById("O").checked )
