@@ -278,3 +278,229 @@ let oper = document.querySelector(".ln")
 oper.classList.add("clickStyle")
 
 */
+/*
+let ar1 = [0,1,2,3,4,5,6,7,8,9]
+let ar2 = [0,1,2,3,4,5,6,7,8,9]
+
+
+
+
+
+
+let g = Functions.findCoordinate(3,8)
+console.log(g.g)
+
+
+
+player1 = player("Joah", "o")
+
+player1.setName("katrina")
+console.log(player1.name)
+player2 = player("Barbra", "x")
+console.log(player2.name)
+
+newGame = Game(player1, player2, 1)
+
+newGame.move(4, player1)
+
+newGame.move(0, player1)
+newGame.move(8, player1)
+
+
+
+
+console.log(newGame.getArray())
+console.log(newGame.checkWin())
+
+
+*/
+//=================================================================================================================
+
+
+
+function generalFunctions () {
+    return {
+        findCoordinate:
+        function (initialNumber, index) {
+            let f = index  % initialNumber
+            let g = (index - f) / initialNumber ;
+            return {f, g};
+        }
+        ,
+        findNumber:
+        function (initialNumber,x,y){
+            return ((initialNumber * y ) + x);
+        }
+        
+    };
+}
+let Functions = generalFunctions();
+
+
+function player (name, sign) {
+    
+    return {
+        name: name,
+        sign: sign,
+        setName: function (newName) {
+            this.name = newName
+        },
+        setSign: function (newSign) {
+            this.sign =  newSign
+        }
+    };
+}
+
+
+
+function Game ( round) {
+    let gameArray = Array()
+    for(let x =0; x <9; x++){
+        gameArray.push(x)
+    }
+    this.round = round;
+
+    function check(number) {
+        let changedNumber = Functions.findCoordinate(3, number)
+        console.log(changedNumber)
+        //Add diagonals 
+        if((number === 0) || (number === 2)){
+            let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.f + 1))
+            let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.f + 2))
+            if ((gameArray[diagonal0] === gameArray[number]) && (gameArray[number] === gameArray[diagonal01])){
+                console.log(gameArray[diagonal0])
+                console.log(gameArray[number])
+                console.log(gameArray[diagonal01])
+                console.log(gameArray[diagonal0],gameArray[number],gameArray[diagonal01])
+                return true
+            }
+
+            let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.f + 1))
+            let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.f + 2))
+            if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
+                console.log(gameArray[diagonal2])
+                console.log(gameArray[number])
+                console.log(gameArray[diagonal21])
+                console.log(gameArray[diagonal2],gameArray[number],gameArray[diagonal21])
+                return true
+            }
+        }
+
+
+        //left  
+        let left = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g))
+        let left1 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g))
+        if(((left >= 0)  && (left <= 8))  && ((left1 >= 0)  && (left1 <= 8)) ) {
+            
+            if ((gameArray[left] === gameArray[number]) && (gameArray[number] === gameArray[left1])){
+                console.log(gameArray[left])
+                console.log(gameArray[number])
+                console.log(gameArray[left1])
+                console.log(gameArray[left],gameArray[number],gameArray[left1])
+                return true
+            }
+        }
+
+        
+        //right
+        let right = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g))
+        let right1 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g))
+        if(((right >= 0)  && (right <= 8))  && ((right1 >= 0)  && (right1 <= 8)) ) {
+            if ((gameArray[right] === gameArray[number]) && (gameArray[number] === gameArray[right1])){
+                console.log(gameArray[right])
+                console.log(gameArray[number])
+                console.log(gameArray[right1])
+                return true
+            }
+        }
+        
+        //down
+        let down = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g - 1))
+        let down1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g - 2))
+        
+        if(((down >= 0)  && (down <= 8))  && ((down1 >= 0)  && (down1 <= 8)) ) {
+            if ((gameArray[down] === gameArray[number]) && (gameArray[number] === gameArray[down1])){
+                console.log(gameArray[down])
+                console.log(gameArray[number])
+                console.log(gameArray[down1])
+                return true
+            }
+        }
+        //up
+        let up = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g + 1))
+        let up1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g + 2))
+        if(((up >= 0)  && (up <= 8))  && ((up1 >= 0)  && (up1 <= 8)) ) {
+            if ((gameArray[up] === gameArray[number]) && (gameArray[number] === gameArray[up1])){
+                console.log(gameArray[up])
+                console.log(gameArray[number])
+                console.log(gameArray[up1])
+                return true
+            }
+        }
+
+        return false
+    }
+    return {
+        move: function (number, player){
+            let h = gameArray[number]
+            if(typeof h ==  "string"){
+
+            }
+            else {
+                gameArray[number] = player.sign
+            }
+            
+        }
+        ,
+        checkWin: function () {
+            let g;
+            for(let f = 0; f < gameArray.length ; f++){
+                
+                g = check(f)
+                if(g == true){
+                    return true
+                }
+            }
+            return false;
+        },
+
+        getArray: function() {
+            return gameArray;
+        }
+        
+    }
+    
+    
+
+}
+
+
+function PCplayer(){
+    let pcplayer = player("PC", "o")
+    
+    return {
+        pcplayer:pcplayer,
+        move: function(Game) {
+            let randomNum = Math.floor(Math.random() * 9);
+            let arr = Game.getArray();
+            while((typeof arr[randomNum])==="string"){
+                randomNum = Math.floor(Math.random() * 9);
+            }
+            return randomNum
+        }
+    }
+}
+
+pcplayer = PCplayer()
+newgame = Game(1)
+
+console.log(pcplayer.move(newgame))
+newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
+console.log(newgame.getArray())
+
+
