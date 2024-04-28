@@ -22,17 +22,17 @@
     </div>
     </div>
     <div class="containerPlayer">
-        <div class="player1">player1
+        <div class="player1"><div class="player_title" style="text-align: center;">PLAYER ONE</div>
             <form action="" method="post">
                 <label for="g">Name:<input type="text"></label>
                 <label style="text-align: left;" for="g">SIGN:
                     <div>
-                        <input type="checkbox" id="O" name="Sign" value="O">
+                        <input type="checkbox" id="O1" name="Sign" value="O">
                         <label for="O">"O"</label>
                       </div>
                       
                       <div>
-                        <input type="checkbox" id="X" name="SIGN" value="X">
+                        <input type="checkbox" id="X1" name="SIGN" value="X">
                         <label for="X">"X"</label>
                       </div>
                 </label>
@@ -42,20 +42,20 @@
                   
                 <label style="text-align: left;" for="g">Color:
                     <div>
-                        <input type="checkbox" id="Brown" name="color" value="Brown">
-                        <label id="Brown" for="Brown">Brown</label>
+                        <input type="checkbox" id="Brown1" name="color" value="Brown">
+                        <label id="Brown1" for="Brown">Brown</label>
                       </div>
                       
                       <div>
-                        <input type="checkbox" id="Black" name="color" value="Black">
-                        <label id="Black" for="Black">Black</label>
+                        <input type="checkbox" id="Black1" name="color" value="Black">
+                        <label id="Black1" for="Black">Black</label>
                       </div>
                 </label>
-                
+                <button class="submitPlayerInfo" type="submit">SUBMIT</button>
               </form>
             
         </div>
-        <div class="player2">player2
+        <div class="player2"><div class="player_title" style="text-align: center; ">PLAYER TWO</div>
             <form action="" method="post">
                 <label for="g">Name:<input type="text"></label>
                 <label style="text-align: left;" for="g">SIGN:
@@ -84,10 +84,11 @@
                         <label id="Black" for="Black">Black</label>
                       </div>
                 </label>
-                
+                <button class="submitPlayerInfo" type="submit">SUBMIT</button>
               </form>
         </div>
     </div>
+    <div class="startGame"><button class="submitPlayerInfo" type="submit">START GAME</button></div>
     <footer></footer>
   </body>
 </html>

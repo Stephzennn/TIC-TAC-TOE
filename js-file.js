@@ -524,12 +524,100 @@ document.getElementById("X").addEventListener("click" ,()=> {
 })
 
 
+document.getElementById("O1").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("O1").checked == true){
+        document.getElementById("X1").checked = false
+    }
+    
+})
+
+
+document.getElementById("X1").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("X1").checked == true){
+        document.getElementById("O1").checked = false
+    }
+   
+})
+
+
+
+
+document.getElementById("O1").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("O1").checked == true){
+        document.getElementById("O").checked = false
+        document.getElementById("X").checked = true
+    }
+    
+})
+
+
+document.getElementById("X1").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("X1").checked == true){
+        document.getElementById("X").checked = false
+        document.getElementById("O").checked = true
+    }
+   
+})
+
+
+
+document.getElementById("O").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("O").checked == true){
+        document.getElementById("O1").checked = false
+        document.getElementById("X1").checked = true
+    }
+    
+})
+
+
+document.getElementById("X").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("X").checked == true){
+        document.getElementById("X1").checked = false
+        document.getElementById("O1").checked = true
+    }
+   
+})
+
+
+/*
+document.getElementById("Brown").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("Brown").checked == true){
+        document.getElementById("Brown1").checked = false
+        document.getElementById("Black1").checked = true
+    }
+    
+})
+
+
+document.getElementById("Black").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("Black").checked == true){
+        document.getElementById("Black1").checked = false
+        document.getElementById("Brown1").checked = true
+    }
+   
+})
+
+*/
+
+
+
+
 
 
 document.getElementById("Brown").addEventListener("click" ,()=> {
     
     if(document.getElementById("Brown").checked == true){
         document.getElementById("Black").checked = false
+        document.getElementById("Brown1").checked = false
+        document.getElementById("Black1").checked = true
     }
     
 })
@@ -539,8 +627,31 @@ document.getElementById("Black").addEventListener("click" ,()=> {
     
     if(document.getElementById("Black").checked == true){
         document.getElementById("Brown").checked = false
+        document.getElementById("Black1").checked = false
+        document.getElementById("Brown1").checked = true
     }
    
 })
 
+
+document.getElementById("Brown1").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("Brown1").checked == true){
+        document.getElementById("Black1").checked = false
+        document.getElementById("Brown").checked = false
+        document.getElementById("Black").checked = true
+    }
+    
+})
+
+
+document.getElementById("Black1").addEventListener("click" ,()=> {
+    
+    if(document.getElementById("Black1").checked == true){
+        document.getElementById("Brown1").checked = false
+        document.getElementById("Black").checked = false
+        document.getElementById("Brown").checked = true
+    }
+   
+})
 console.log(document.getElementById("O").checked )
