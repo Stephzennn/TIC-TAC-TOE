@@ -371,8 +371,8 @@ function Game ( round) {
         //Add diagonals 
         if((number === 0) || (number === 2)){
             numberString = "";
-            let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.f + 1))
-            let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.f + 2))
+            let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g + 1))
+            let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g + 2))
             if ((gameArray[diagonal0] === gameArray[number]) && (gameArray[number] === gameArray[diagonal01])){
                 numbers = ([diagonal0, number , diagonal01]).sort()
                 
@@ -381,9 +381,9 @@ function Game ( round) {
                 }
                 return numberString
             }
-    
-            let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.f + 1))
-            let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.f + 2))
+            if (number == 2){
+                let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g + 1))
+            let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g + 2))
             if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
                 numbers = ([diagonal2, number , diagonal21]).sort()
                 
@@ -392,6 +392,8 @@ function Game ( round) {
                 }
                 return numberString
             }
+            }
+            
     
         }
     
@@ -460,12 +462,12 @@ function Game ( round) {
     }
     function check(number) {
         let changedNumber = Functions.findCoordinate(3, number)
-        console.log(changedNumber)
+        console.log("Here is the changed number",changedNumber)
         //Add diagonals 
         if((number === 0) || (number === 2)){
             numberString = "";
-            let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.f + 1))
-            let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.f + 2))
+            let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g + 1))
+            let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g + 2))
             if ((gameArray[diagonal0] === gameArray[number]) && (gameArray[number] === gameArray[diagonal01])){
                 numbers = ([diagonal0, number , diagonal01]).sort()
                 
@@ -475,12 +477,25 @@ function Game ( round) {
                 return true
             }
 
-            let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.f + 1))
-            let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.f + 2))
-            if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
-                
-                return true
+            if(number == 2) {
+
+                console.log(changedNumber)
+                console.log(changedNumber.f - 1)
+                console.log(changedNumber.f + 1)
+
+                let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g + 1))
+                let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g + 2))
+                console.log("Diagonals")
+                console.log(diagonal2, diagonal21)
+                if(((diagonal2 >= 0)  && (diagonal2 <= 8))  && ((diagonal21 >= 0)  && (diagonal21 <= 8)) ) {
+                    if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
+                    
+                        return true
+                    }
+                }
             }
+            
+            
 
         }
 
@@ -774,7 +789,7 @@ startGame.addEventListener("click", ()=>{
             g.classList.add(s)
             newgame.move(x,focusedPlayer)
             console.log(newgame.getArray())
-            newgame.checkWin()
+            
             if (newgame.checkWin() === true){
                 console.log(newgame.getFinalNumber())
                 console.log("Someone won")

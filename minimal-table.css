@@ -721,7 +721,7 @@ clamp(30px, 2vw, 80px);
 
 
 .StateGame .line1.active{
-  opacity: 0; /* Set opacity to 1 */
+  opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
   grid-row:2/4  ;
@@ -731,12 +731,13 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
-  
+  margin-left: 5%;
+  margin-right: 5%;
   transition: opacity 1s ease-in-out;
 }
 
 .StateGame .line2.active{
-  opacity: 0; /* Set opacity to 1 */
+  opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
   grid-row:4/4  ;
@@ -746,7 +747,8 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
-  
+  margin-left: 5%;
+  margin-right: 5%;
   transition: opacity 1s ease-in-out;
 }
 .StateGame .line3.active{
@@ -760,7 +762,8 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
-  
+  margin-left: 5%;
+  margin-right: 5%;
   transition: opacity 1s ease-in-out;
 }
 .StateGame .line4.active{
@@ -774,7 +777,8 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: black 5px solid;
   border-right: 0px;
- 
+  margin-top: 10%;
+  margin-bottom: 10%;
   transition: opacity 1s ease-in-out;
 }
 
@@ -789,7 +793,8 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: black 5px solid;
   border-right: 0px;
-  
+  margin-top: 10%;
+  margin-bottom: 10%;
   transition: opacity 1s ease-in-out;
   
 }
@@ -805,7 +810,8 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: black 5px solid;
   border-right: 0px;
-  
+  margin-top: 10%;
+  margin-bottom: 10%;
   transition: opacity 1s ease-in-out;
   
 }
@@ -816,7 +822,7 @@ clamp(30px, 2vw, 80px);
   width: auto; /* Reset width */
   grid-row:  1/-1 ;
   grid-column: 1/-1;
-  
+  margin: 5%;
   background: linear-gradient(to bottom left, transparent calc(50% - 2px), black calc(50% - 2px), black 50%, transparent calc(50% + 2px));
   
   transition: opacity 1s ease-in-out;
@@ -828,7 +834,8 @@ clamp(30px, 2vw, 80px);
   width: auto; /* Reset width */
   grid-row:  1/-1 ;
   grid-column: 1/-1;
-  
+  margin-left: 5%;
+  margin-right: 5%;
   background: linear-gradient(to bottom right, transparent calc(50% - 2px), black calc(50% - 2px), black 50%, transparent calc(50% + 2px));
   
   transition: opacity 1s ease-in-out;
