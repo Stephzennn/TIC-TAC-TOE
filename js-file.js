@@ -337,16 +337,20 @@ function generalFunctions () {
 let Functions = generalFunctions();
 
 
-function player (name, sign) {
+function player (name, sign, color) {
     
     return {
         name: name,
         sign: sign,
+        color: color,
         setName: function (newName) {
             this.name = newName
         },
         setSign: function (newSign) {
             this.sign =  newSign
+        },
+        setColor: function (newColor) {
+            this.color =  newColor
         }
     };
 }
@@ -355,35 +359,129 @@ function player (name, sign) {
 
 function Game ( round) {
     let gameArray = Array()
+    let finalNumber = ""
     for(let x =0; x <9; x++){
         gameArray.push(x)
     }
     this.round = round;
 
+    function checkNumber(number) {
+        let changedNumber = Functions.findCoordinate(3, number)
+        console.log(changedNumber)
+        //Add diagonals 
+        if((number === 0) || (number === 2)){
+            numberString = "";
+            let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.f + 1))
+            let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.f + 2))
+            if ((gameArray[diagonal0] === gameArray[number]) && (gameArray[number] === gameArray[diagonal01])){
+                numbers = ([diagonal0, number , diagonal01]).sort()
+                
+                for(let x = 0; x < numbers.length; x++){
+                    numberString = numberString + numbers[x];
+                }
+                return numberString
+            }
+    
+            let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.f + 1))
+            let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.f + 2))
+            if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
+                numbers = ([diagonal2, number , diagonal21]).sort()
+                
+                for(let x = 0; x < numbers.length; x++){
+                    numberString = numberString + numbers[x];
+                }
+                return numberString
+            }
+    
+        }
+    
+    
+        //left  
+        let left = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g))
+        let left1 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g))
+        if(((left >= 0)  && (left <= 8))  && ((left1 >= 0)  && (left1 <= 8)) ) {
+            
+            if ((gameArray[left] === gameArray[number]) && (gameArray[number] === gameArray[left1])){
+                numbers = ([left, number , left1]).sort()
+                
+                for(let x = 0; x < numbers.length; x++){
+                    numberString = numberString + numbers[x];
+                }
+                return numberString
+            }
+        }
+    
+        
+        //right
+        let right = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g))
+        let right1 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g))
+        if(((right >= 0)  && (right <= 8))  && ((right1 >= 0)  && (right1 <= 8)) ) {
+            if ((gameArray[right] === gameArray[number]) && (gameArray[number] === gameArray[right1])){
+                numbers = ([right, number , right1]).sort()
+                
+                for(let x = 0; x < numbers.length; x++){
+                    numberString = numberString + numbers[x];
+                }
+                return numberString
+            }
+        }
+        
+        //down
+        let down = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g - 1))
+        let down1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g - 2))
+        
+        if(((down >= 0)  && (down <= 8))  && ((down1 >= 0)  && (down1 <= 8)) ) {
+            if ((gameArray[down] === gameArray[number]) && (gameArray[number] === gameArray[down1])){
+                
+                numbers = ([down, number , down1]).sort()
+                
+                for(let x = 0; x < numbers.length; x++){
+                    numberString = numberString + numbers[x];
+                }
+                return numberString
+            }
+        }
+        //up
+        let up = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g + 1))
+        let up1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g + 2))
+        if(((up >= 0)  && (up <= 8))  && ((up1 >= 0)  && (up1 <= 8)) ) {
+            if ((gameArray[up] === gameArray[number]) && (gameArray[number] === gameArray[up1])){
+                numbers = ([up, number , up1]).sort()
+                
+                for(let x = 0; x < numbers.length; x++){
+                    numberString = numberString + numbers[x];
+                }
+                return numberString
+                
+            }
+        }
+    
+        return numberString
+    }
     function check(number) {
         let changedNumber = Functions.findCoordinate(3, number)
         console.log(changedNumber)
         //Add diagonals 
         if((number === 0) || (number === 2)){
+            numberString = "";
             let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.f + 1))
             let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.f + 2))
             if ((gameArray[diagonal0] === gameArray[number]) && (gameArray[number] === gameArray[diagonal01])){
-                console.log(gameArray[diagonal0])
-                console.log(gameArray[number])
-                console.log(gameArray[diagonal01])
-                console.log(gameArray[diagonal0],gameArray[number],gameArray[diagonal01])
+                numbers = ([diagonal0, number , diagonal01]).sort()
+                
+                for(let x = 0; x < numbers.length; x++){
+                    numberString = numberString + p[x];
+                }
                 return true
             }
 
             let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.f + 1))
             let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.f + 2))
             if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
-                console.log(gameArray[diagonal2])
-                console.log(gameArray[number])
-                console.log(gameArray[diagonal21])
-                console.log(gameArray[diagonal2],gameArray[number],gameArray[diagonal21])
+                
                 return true
             }
+
         }
 
 
@@ -393,10 +491,7 @@ function Game ( round) {
         if(((left >= 0)  && (left <= 8))  && ((left1 >= 0)  && (left1 <= 8)) ) {
             
             if ((gameArray[left] === gameArray[number]) && (gameArray[number] === gameArray[left1])){
-                console.log(gameArray[left])
-                console.log(gameArray[number])
-                console.log(gameArray[left1])
-                console.log(gameArray[left],gameArray[number],gameArray[left1])
+                
                 return true
             }
         }
@@ -407,9 +502,7 @@ function Game ( round) {
         let right1 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g))
         if(((right >= 0)  && (right <= 8))  && ((right1 >= 0)  && (right1 <= 8)) ) {
             if ((gameArray[right] === gameArray[number]) && (gameArray[number] === gameArray[right1])){
-                console.log(gameArray[right])
-                console.log(gameArray[number])
-                console.log(gameArray[right1])
+                
                 return true
             }
         }
@@ -420,9 +513,7 @@ function Game ( round) {
         
         if(((down >= 0)  && (down <= 8))  && ((down1 >= 0)  && (down1 <= 8)) ) {
             if ((gameArray[down] === gameArray[number]) && (gameArray[number] === gameArray[down1])){
-                console.log(gameArray[down])
-                console.log(gameArray[number])
-                console.log(gameArray[down1])
+                
                 return true
             }
         }
@@ -431,9 +522,7 @@ function Game ( round) {
         let up1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g + 2))
         if(((up >= 0)  && (up <= 8))  && ((up1 >= 0)  && (up1 <= 8)) ) {
             if ((gameArray[up] === gameArray[number]) && (gameArray[number] === gameArray[up1])){
-                console.log(gameArray[up])
-                console.log(gameArray[number])
-                console.log(gameArray[up1])
+                
                 return true
             }
         }
@@ -458,6 +547,7 @@ function Game ( round) {
                 
                 g = check(f)
                 if(g == true){
+                    finalNumber = checkNumber(f)
                     return true
                 }
             }
@@ -467,7 +557,10 @@ function Game ( round) {
         getArray: function() {
             return gameArray;
         }
-        
+        ,
+        getFinalNumber: function() {
+            return finalNumber;
+        }
     }
     
     
@@ -493,17 +586,10 @@ function PCplayer(){
 
 pcplayer = PCplayer()
 newgame = Game(1)
+let player1 = player()
+let player2 = player()
 
-console.log(pcplayer.move(newgame))
-newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
-newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
-
-newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
-
-newgame.move(pcplayer.move(newgame),pcplayer.pcplayer)
-console.log(newgame.checkWin())
-
-console.log(newgame.getArray())
+let focusedPlayer;
 
 
 document.getElementById("O").addEventListener("click" ,()=> {
@@ -541,8 +627,14 @@ document.getElementById("X1").addEventListener("click" ,()=> {
    
 })
 
+let stri = "";
+let p = ([2,3,1].sort())
+for(let x = 0; x < p.length; x++){
+    stri = stri + p[x];
+}
+console.log(stri)
 
-
+console.log(("123" == stri) )
 
 document.getElementById("O1").addEventListener("click" ,()=> {
     
@@ -653,13 +745,90 @@ AgainstPC.addEventListener("click", ()=>{
 })
 
 let startGame = document.querySelector(".startGame>button")
-
+focusedPlayer = player1
 startGame.addEventListener("click", ()=>{
     body.classList.remove("State2")
     body.classList.remove("State1")
     body.classList.remove("State2_1")
     body.classList.remove("State2_2")
     body.classList.add("StateGame")
+    
+    document.querySelector(".turn").innerText = "PLAYER ONE"
+    document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+    let boards = document.querySelectorAll(".boards")
+    
+    for (let x = 0; x < 9 ; x++){
+        
+        
+        let g = boards[x]
+        
+        g.addEventListener("click", (event)=>{
+            
+            event.stopPropagation();
+            let s = focusedPlayer.color
+            let turn = ""
+            newgame[x] = focusedPlayer.sign
+            g.innerText = focusedPlayer.sign
+            g.classList.remove("Black")
+            g.classList.remove("Brown")
+            g.classList.add(s)
+            newgame.move(x,focusedPlayer)
+            console.log(newgame.getArray())
+            newgame.checkWin()
+            if (newgame.checkWin() === true){
+                console.log(newgame.getFinalNumber())
+                console.log("Someone won")
+                lineString = ""
+                switch(newgame.getFinalNumber()) {
+                    case '012':
+                        lineString = "line1"
+                        break;
+                    case '345':
+                        lineString = "line2"
+                        break;
+                    case '678':
+                        lineString = "line3"
+                        break;
+                    case '036':
+                        lineString = "line4"
+                        break;
+                    case '147':
+                        lineString = "line5"
+                        break;
+                    case '258':
+                        lineString = "line6"
+                        break;
+                    case '048':
+                        lineString = "line7"
+                        break;
+                    case '246':
+                        lineString = "line8"
+                        break;
+                    default:
+                        break;
+                } 
+                console.log(lineString)
+                let line = document.querySelector("." + lineString)
+                line.classList.add("active")
+
+            }
+            if (focusedPlayer === player1){
+                focusedPlayer = player2
+                turn = "PLAYER TWO"
+            }
+            else if (focusedPlayer === player2){
+                focusedPlayer = player1
+                turn = "PLAYER ONE"
+            }
+            document.querySelector(".turn").innerText = turn
+            document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+            
+            
+            
+        })
+    }
+    
+
 })
 
 let submitPlayer2 = document.querySelector("#submitPlayerInfosubmit2")
@@ -674,6 +843,9 @@ submitPlayer2.addEventListener('click', function(e) {
     e.preventDefault();
     
 });
+
+
+
 
 submitPlayer1.addEventListener("click", ()=>{
     let pass = true;
@@ -769,6 +941,11 @@ submitPlayer1.addEventListener("click", ()=>{
     
     general.removeChild(formplayer1)
     general.appendChild(divInfo)
+    player1.setName(PlayerName1.value)
+    player1.setSign(checkedSign)
+    player1.setColor(checkedColor)
+    console.log(player1)
+
     }
     else {
 
@@ -871,6 +1048,10 @@ submitPlayer2.addEventListener("click", ()=>{
     
     general.removeChild(formPlayer2)
     general.appendChild(divInfo)
+    player2.setName(PlayerName.value)
+    player2.setSign(checkedSign)
+    player2.setColor(checkedColor)
+    console.log(player2)
     }
     else {
 
@@ -878,3 +1059,35 @@ submitPlayer2.addEventListener("click", ()=>{
     
     
 })
+
+
+lineString = ""
+switch("012") {
+    case '012':
+        lineString = "line1"
+        break;
+    case '345':
+        lineString = "line2"
+        break;
+    case '678':
+        lineString = "line3"
+        break;
+    case '036':
+        lineString = "line4"
+        break;
+    case '147':
+        lineString = "line5"
+        break;
+    case '258':
+        lineString = "line6"
+        break;
+    case '048':
+        lineString = "line7"
+        break;
+    case '246':
+        lineString = "line8"
+        break;
+    default:
+        break;
+}   
+

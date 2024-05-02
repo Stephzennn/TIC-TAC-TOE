@@ -603,7 +603,7 @@ body,.StateGame{
   border-radius: 5px;
   
  }
- .t1,.t2,.t3,.t4,.t5,.t6,.t7,.t8,.t9,.line1,.line2,.line3,.line4,.line5,.line6,.line7,.line8 {
+ .t1,.t2,.t3,.t4,.t5,.t6,.t7,.t8,.t9,.StateGame .line1,.StateGame .line2,.StateGame .line3,.StateGame .line4,.StateGame .line5,.StateGame .line6,.StateGame .line7,.StateGame .line8 {
   padding: 0%;
   margin: 0%;
   height: 0px; /* Set height to 0 */
@@ -720,8 +720,8 @@ clamp(30px, 2vw, 80px);
 
 
 
-.StateGame .line1{
-  opacity: 1; /* Set opacity to 1 */
+.StateGame .line1.active{
+  opacity: 0; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
   grid-row:2/4  ;
@@ -731,12 +731,12 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
-  opacity: 0;
+  
   transition: opacity 1s ease-in-out;
 }
 
-.StateGame .line2{
-  opacity: 1; /* Set opacity to 1 */
+.StateGame .line2.active{
+  opacity: 0; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
   grid-row:4/4  ;
@@ -746,10 +746,10 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
-  opacity: 0;
+  
   transition: opacity 1s ease-in-out;
 }
-.StateGame .line3{
+.StateGame .line3.active{
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
@@ -760,10 +760,10 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: 0px;
   border-right: 0px;
-  opacity: 0;
+  
   transition: opacity 1s ease-in-out;
 }
-.StateGame .line4{
+.StateGame .line4.active{
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
@@ -774,11 +774,11 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: black 5px solid;
   border-right: 0px;
-  opacity: 0;
+ 
   transition: opacity 1s ease-in-out;
 }
 
-.StateGame .line5{
+.StateGame .line5.active{
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
@@ -789,13 +789,13 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: black 5px solid;
   border-right: 0px;
-  opacity: 0;
+  
   transition: opacity 1s ease-in-out;
   
 }
 
 
-.StateGame .line6{
+.StateGame .line6.active{
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
@@ -805,24 +805,24 @@ clamp(30px, 2vw, 80px);
   border-bottom: 0px;
   border-left: black 5px solid;
   border-right: 0px;
-  opacity: 0;
+  
   transition: opacity 1s ease-in-out;
   
 }
 
-.StateGame .line7{
+.StateGame .line7.active{
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
   grid-row:  1/-1 ;
   grid-column: 1/-1;
-  border: rebeccapurple solid;
+  
   background: linear-gradient(to bottom left, transparent calc(50% - 2px), black calc(50% - 2px), black 50%, transparent calc(50% + 2px));
-  opacity: 0;
+  
   transition: opacity 1s ease-in-out;
 }
 
-.StateGame .line8{
+.StateGame .line8.active{
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
@@ -830,7 +830,7 @@ clamp(30px, 2vw, 80px);
   grid-column: 1/-1;
   
   background: linear-gradient(to bottom right, transparent calc(50% - 2px), black calc(50% - 2px), black 50%, transparent calc(50% + 2px));
-  opacity: 0;
+  
   transition: opacity 1s ease-in-out;
 }
 
@@ -890,6 +890,15 @@ clamp(30px, 2vw, 80px);
 }
 
 
+.Brown {
+  color: var(--color-shade-1);
+  font-weight: bold;
+}
+
+.Black {
+  color:#000;
+  font-weight: bold;
+}
 
 .State2_1 #Brown, .State2_1 #Brown1{
   color: var(--color-shade-1);
