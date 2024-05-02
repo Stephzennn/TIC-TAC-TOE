@@ -106,6 +106,18 @@ fieldset{
     margin-right: 5px;
 
   }
+  .State1 form {
+    padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  font-size: 0px;
+  padding-block: 0px;
+  padding-inline: 0px;
+  border: 0px;
+  border-radius: 0px;
+  }
   ul {
     list-style: none;
     padding: 0;
@@ -125,9 +137,22 @@ fieldset{
     margin-bottom: 20px;
     text-align: right;
   }
+  .State1 label {
+    /* Uniform size & alignment */
+    padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  font-size: 0px;
+  padding-block: 0px;
+  padding-inline: 0px;
+  border: 0px;
+  border-radius: 0px;
+  }
 
-  input,
-textarea {
+.State2_1 input,
+.State2_1 textarea {
   /* To make sure that all text fields have the same font settings
      By default, textareas have a monospace font */
   font: 1em sans-serif;
@@ -139,6 +164,21 @@ textarea {
   border-radius: 3px;
 }
 
+.State1 input,
+.State1 textarea {
+  
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  font-size: 0px;
+  padding-block: 0px;
+  padding-inline: 0px;
+  border: 0px;
+  border-radius: 0px;
+}
+
 input:focus,
 textarea:focus {
   /* Additional highlight for focused elements */
@@ -146,6 +186,18 @@ textarea:focus {
   border-color: white;
 }
 
+.State1 .submitPlayerInfo {
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  font-size: 0px;
+  padding-block: 0px;
+  padding-inline: 0px;
+  border: 0px;
+  border-radius: 0px;
+}
 
 input:invalid {
   border-color: red;
@@ -154,11 +206,27 @@ input:invalid {
 input:valid{
   border-color:#c5ac84;
 }
+
+
 textarea {
   /* Align multiline text fields with their labels */
   vertical-align: top;
   /* Provide space to type some text */
   height: 5em;
+}
+
+.State1 textarea {
+  /* Align multiline text fields with their labels */
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  font-size: 0px;
+  padding-block: 0px;
+  padding-inline: 0px;
+  border: 0px;
+  border-radius: 0px;
 }
 
 /*
@@ -221,11 +289,12 @@ body,.State2_2{
 }
 
 body,.StateGame{
-  color:blue;
+  color:black;
   display: grid;
   grid-template-columns: 2fr 5fr 2fr;
   grid-template-rows: 0.5fr 4fr 0.5fr;
   padding: 5%;
+  padding-top: 1%;
 }
 
 :root {
@@ -451,7 +520,8 @@ body,.StateGame{
   grid-row: 2/3;
   grid-column: 1/-1;
   display: flex;
-  justify-content: space-around;
+  justify-content:  center;
+  
   padding: 20px;
   
 }
@@ -474,36 +544,96 @@ body,.StateGame{
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
-  border: red solid;
+  
   flex-wrap: wrap;
   grid-row: 2/3;
   grid-column: 1/-1;
   display: flex;
   justify-content: center;
-  padding: 20px;
+  align-items: center;
+  padding: 5%;
+ 
+  flex-direction: column;
   
+}
+.turn{
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+
 }
 
 
-
-.StateGame .GameBoard{
+.StateGame .turn{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
+  color: var(--color-shade-1);
+  grid-row: 3/4;
+  grid-column: 1/-1;
+  text-align: center;
+  padding-top: 10%;
+  font-weight: bold;
+  font-size: 40px;
   
-  min-width: 60%;
+}
+
+.GameBoard{
+  
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  
+ }
+.StateGame .GameBoard{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
+  min-width: 50%;
+  max-width: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr  ;
   grid-template-rows:1fr 1fr 1fr 1fr 1fr 1fr ; 
+  position: relative;
+  border: var(--color-shade-1) solid 2px;
+  border-radius: 5px;
+  
+ }
+ .t1,.t2,.t3,.t4,.t5,.t6,.t7,.t8,.t9,.line1,.line2,.line3,.line4,.line5,.line6,.line7,.line8 {
+  padding: 0%;
+  margin: 0%;
+  height: 0px; /* Set height to 0 */
+  width: 0px; /* Set width to 0 */
+  opacity: 0; /* Set opacity to 0 */
+  
 }
-
-
-.t1,.t2,.t3,.t4,.t5,.t6,.t7,.t8,.t9 {
+.red{
+  color: red;
+  background-color: red;
+  border: red solid;
+}
+ .StateGame .t1,.StateGame .t2,.StateGame .t3,.StateGame .t4,.StateGame .t5,.StateGame .t6,.StateGame .t7,.StateGame .t8,.StateGame .t9 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 100px;
-  font-family: writing2;
+  font-size: clamp(30px, 8vw, 80px);
+  font-family:'Times New Roman', Times, serif
 }
+/*
+clamp(30px, 2vw, 80px);
+*/
 
-.t1 {
+.StateGame .t1 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:1/3 ;
   grid-column:1/3 ;
   border: black solid;
@@ -512,51 +642,75 @@ body,.StateGame{
   
 }
 
-.t2 {
+.StateGame .t2 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:1/3;
   grid-column:  3/5 ;
   border: black solid;
   border-top:0px ;
 }
-.t3 {
+.StateGame .t3 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:1/3 ;
   grid-column:  5/-1;
   border: black solid;
   border-top:0px ;
   border-right: 0px;
 }
-.t4 {
+.StateGame .t4 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:3/5;
   grid-column: 1/3 ;
   border: black solid;
   border-left: 0px;
 }
-.t5 {
+.StateGame .t5 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:3/5;
   grid-column: 3/5;
   border: black solid;
 }
-.t6 {
+.StateGame .t6 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:3/5;
   grid-column:5/-1 ;
   border: black solid;
   border-right: 0px;
 }
-.t7 {
+.StateGame .t7 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:5/-1  ;
   grid-column:1/3  ;
   border: black solid;
   border-left: 0px;
   border-bottom: 0px;
 }
-.t8 {
+.StateGame .t8 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:5/-1  ;
   grid-column: 3/5 ;
   border: black solid;
   border-bottom: 0px;
 }
 
-.t9 {
+.StateGame .t9 {
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:5/-1  ;
   grid-column: 5/-1 ;
   border: black solid;
@@ -564,7 +718,12 @@ body,.StateGame{
   border-right: 0px;
 }
 
-.line1{
+
+
+.StateGame .line1{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:2/4  ;
   grid-column: 1/-1 ;
   
@@ -573,9 +732,13 @@ body,.StateGame{
   border-left: 0px;
   border-right: 0px;
   opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-.line2{
+.StateGame .line2{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:4/4  ;
   grid-column: 1/-1 ;
   
@@ -584,8 +747,12 @@ body,.StateGame{
   border-left: 0px;
   border-right: 0px;
   opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
-.line3{
+.StateGame .line3{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:6/6  ;
   grid-column: 1/-1 ;
   
@@ -594,8 +761,12 @@ body,.StateGame{
   border-left: 0px;
   border-right: 0px;
   opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
-.line4{
+.StateGame .line4{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:  1/-1 ;
   grid-column: 2/2;
   
@@ -604,9 +775,13 @@ body,.StateGame{
   border-left: black 5px solid;
   border-right: 0px;
   opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-.line5{
+.StateGame .line5{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:  1/-1 ;
   grid-column: 4/4;
   
@@ -615,21 +790,51 @@ body,.StateGame{
   border-left: black 5px solid;
   border-right: 0px;
   opacity: 0;
+  transition: opacity 1s ease-in-out;
   
 }
 
 
-.line6{
+.StateGame .line6{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
   grid-row:  1/-1 ;
   grid-column: 6/6;
-  
   border-top: 0px;
   border-bottom: 0px;
   border-left: black 5px solid;
   border-right: 0px;
   opacity: 0;
+  transition: opacity 1s ease-in-out;
   
 }
+
+.StateGame .line7{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
+  grid-row:  1/-1 ;
+  grid-column: 1/-1;
+  border: rebeccapurple solid;
+  background: linear-gradient(to bottom left, transparent calc(50% - 2px), black calc(50% - 2px), black 50%, transparent calc(50% + 2px));
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.StateGame .line8{
+  opacity: 1; /* Set opacity to 1 */
+  height: auto; /* Reset height */
+  width: auto; /* Reset width */
+  grid-row:  1/-1 ;
+  grid-column: 1/-1;
+  
+  background: linear-gradient(to bottom right, transparent calc(50% - 2px), black calc(50% - 2px), black 50%, transparent calc(50% + 2px));
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
 .containerPlayer>.player1{
  
   padding: 0%;
@@ -640,13 +845,14 @@ body,.StateGame{
 }
 
 .State2_1 .containerPlayer>.player1{
- 
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+  
 }
 .State2_2 .containerPlayer>.player1{
   opacity: 1; /* Set opacity to 1 */
@@ -673,33 +879,34 @@ body,.StateGame{
 
 
 .State2_1 .containerPlayer>.player2{
-  
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  
+  
 }
 
 
 
-.State2_1 #Brown{
+.State2_1 #Brown, .State2_1 #Brown1{
   color: var(--color-shade-1);
   font-weight: bold;
   
 }
 
-.State2_2 #Brown{
+.State2_2 #Brown, .State2_2 #Brown1{
   color: var(--color-shade-1);
   font-weight: bold;
   
 }
-.State2_1 #Black{
+.State2_1 #Black,.State2_1 #Black1{
   color:#000;
   font-weight: bold;
 }
-.State2_2 #Black{
+.State2_2 #Black,.State2_2 #Black1{
   color:#000;
   font-weight: bold;
 }
@@ -841,4 +1048,12 @@ body,.StateGame{
   padding: 5px;
   margin: inherit;
   width: 40%;
+}
+
+
+
+.alignLeft {
+  text-align: left;
+  font-size: 30px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }

@@ -584,34 +584,6 @@ document.getElementById("X").addEventListener("click" ,()=> {
    
 })
 
-
-/*
-document.getElementById("Brown").addEventListener("click" ,()=> {
-    
-    if(document.getElementById("Brown").checked == true){
-        document.getElementById("Brown1").checked = false
-        document.getElementById("Black1").checked = true
-    }
-    
-})
-
-
-document.getElementById("Black").addEventListener("click" ,()=> {
-    
-    if(document.getElementById("Black").checked == true){
-        document.getElementById("Black1").checked = false
-        document.getElementById("Brown1").checked = true
-    }
-   
-})
-
-*/
-
-
-
-
-
-
 document.getElementById("Brown").addEventListener("click" ,()=> {
     
     if(document.getElementById("Brown").checked == true){
@@ -655,3 +627,112 @@ document.getElementById("Black1").addEventListener("click" ,()=> {
    
 })
 console.log(document.getElementById("O").checked )
+
+let g = document.querySelector(".playGame>button")
+let body = document.querySelector("body")
+
+g.addEventListener("click", () => {
+    body.classList.remove("State1")
+    body.classList.remove("State2_1")
+    body.classList.add("State2")
+})
+
+let AgainstPlayer = document.querySelector(".playervspc>button:nth-child(1)")
+let AgainstPC = document.querySelector(".playervspc>button:nth-child(2)")
+
+AgainstPlayer.addEventListener("click", ()=>{
+    body.classList.remove("State2")
+    body.classList.remove("State1")
+    body.classList.add("State2_1")
+})
+
+AgainstPC.addEventListener("click", ()=>{
+    body.classList.remove("State2")
+    body.classList.remove("State1")
+    body.classList.add("State2_2")
+})
+
+let startGame = document.querySelector(".startGame>button")
+
+startGame.addEventListener("click", ()=>{
+    body.classList.remove("State2")
+    body.classList.remove("State1")
+    body.classList.remove("State2_1")
+    body.classList.remove("State2_2")
+    body.classList.add("StateGame")
+})
+
+let submitPlayer2 = document.querySelector("#submitPlayerInfosubmit2")
+submitPlayer2.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+});
+
+
+let submitPlayer1 = document.querySelector("#submitPlayerInfosubmit1")
+submitPlayer2.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+});
+
+submitPlayer2.addEventListener("click", ()=>{
+    
+    let formPlayer2 = document.querySelector(".player2>form")
+    
+    let PlayerName = formPlayer2.querySelector(".PlayerName>input")
+    
+    let checkedSign;
+    if ((formPlayer2.querySelector(".PlayerSign>.Ocheck")).querySelector("#O").checked == true) {
+        checkedSign =(formPlayer2.querySelector(".PlayerSign>.Ocheck")).querySelector("#O")
+    }
+    else if ((formPlayer2.querySelector(".PlayerSign>.Xcheck")).querySelector("#X").checked == true){
+        checkedSign =(formPlayer2.querySelector(".PlayerSign>.Xcheck")).querySelector("#X")
+    }
+    checkedSign = checkedSign.value
+    let checkedColor;
+    if ((formPlayer2.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown").checked == true) {
+        checkedColor =(formPlayer2.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown")
+    }
+    else if ((formPlayer2.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black").checked == true){
+        checkedColor =(formPlayer2.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black")
+    }
+    checkedColor = checkedColor.value
+    
+    
+    //let PlayerColor = formPlayer2.querySelector(".PlayerColor>input")
+    //console.log(PlayerColor.value)
+
+    let divInfo = document.createElement("form")
+    divInfo.classList.add("alignLeft")
+    let labelName = document.createElement("label")
+    labelName.innerText = "Name: "
+    labelName.classList.add("alignLeft")
+    let divName = document.createElement("div")
+    divName.innerText = PlayerName.value
+    divName.style.fontWeight = "bold"
+    labelName.appendChild(divName)
+    let labelSign = document.createElement("label")
+    labelSign.innerText = "Sign: "
+    labelSign.classList.add("alignLeft")
+    let divSign = document.createElement("div")
+    divSign.innerText = checkedSign
+    divSign.style.fontWeight = "bold"
+    labelSign.appendChild(divSign)
+    let labelColor = document.createElement("label")
+    labelColor.innerText = "Color: "
+    labelColor.classList.add("alignLeft")
+    let divColor = document.createElement("div")
+    divColor.innerText = checkedColor
+    divColor.style.fontWeight = "bold"
+    labelColor.appendChild(divColor)
+
+    divInfo.appendChild(labelName)
+    divInfo.appendChild(labelSign)
+    divInfo.appendChild(labelColor)
+    let general = document.querySelector(".player2")
+    
+    
+    general.removeChild(formPlayer2)
+    general.appendChild(divInfo)
+    
+})
