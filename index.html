@@ -25,14 +25,14 @@
     <div class="containerPlayer">
         <div class="player1"><div class="player_title" style="text-align: center;">PLAYER ONE</div>
             <form action="" method="post">
-                <label for="g">Name:<input type="text"></label>
-                <label style="text-align: left;" for="g">SIGN:
-                    <div>
+                <label class="PlayerName1" for="g">Name:<input type="text"></label>
+                <label class="PlayerSign"  style="text-align: left;" for="g">SIGN:
+                    <div  class="Ocheck" >
                         <input type="checkbox" id="O1" name="Sign" value="O">
                         <label for="O">"O"</label>
                       </div>
                       
-                      <div>
+                      <div class="Xcheck">
                         <input type="checkbox" id="X1" name="SIGN" value="X">
                         <label for="X">"X"</label>
                       </div>
@@ -41,7 +41,7 @@
                   
                   
                   
-                <label style="text-align: left;" for="g">Color:
+                <label class="PlayerColor" style="text-align: left;" for="g">Color:
                     <div>
                         <input type="checkbox" id="Brown1" name="color" value="Brown">
                         <label id="Brown1" for="Brown">Brown</label>
@@ -110,6 +110,7 @@
         <div class="line8"></div>
     </div>
     <div class="turn" > PLAYER ONE</div>
+    <div class="turn" style="color: black; justify-self: flex-start;" > ESTIFANOS ZENEBE</div>
     </div>
     <div class="startGame"><button class="submitPlayerInfo" type="submit">START GAME</button></div>
     

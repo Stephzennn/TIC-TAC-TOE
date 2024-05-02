@@ -675,27 +675,164 @@ submitPlayer2.addEventListener('click', function(e) {
     
 });
 
-submitPlayer2.addEventListener("click", ()=>{
+submitPlayer1.addEventListener("click", ()=>{
+    let pass = true;
+    let formplayer1 = document.querySelector(".player1>form")
     
+    let PlayerName1 = formplayer1.querySelector(".PlayerName1>input")
+    if (PlayerName1.value == ""){
+        PlayerName1.setCustomValidity('Invalid input'); 
+        pass = false
+    }
+    else{
+        PlayerName1.setCustomValidity(''); 
+        
+    }
+    
+    let checkedSign;
+    if ((formplayer1.querySelector(".PlayerSign>.Ocheck")).querySelector("#O1").checked == true) {
+        let input = ((formplayer1.querySelector(".PlayerSign>.Ocheck")).querySelector("#O1"))
+        input.setCustomValidity('');
+        checkedSign =(formplayer1.querySelector(".PlayerSign>.Ocheck")).querySelector("#O1")
+    }
+    else if ((formplayer1.querySelector(".PlayerSign>.Xcheck")).querySelector("#X1").checked == true){
+        let input2 = ((formplayer1.querySelector(".PlayerSign>.Xcheck")).querySelector("#X1"))
+        input2.setCustomValidity('');
+        checkedSign =(formplayer1.querySelector(".PlayerSign>.Xcheck")).querySelector("#X1")
+    }
+    else {
+        let input = ((formplayer1.querySelector(".PlayerSign>.Ocheck")).querySelector("#O1"))
+        let input2 = ((formplayer1.querySelector(".PlayerSign>.Xcheck")).querySelector("#X1"))
+        
+        input.setCustomValidity('Invalid input')
+        input2.setCustomValidity('Invalid input')
+        input2.setCustomValidity(''); 
+        pass = false
+    }
+
+    
+    let checkedColor;
+    if ((formplayer1.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown1").checked == true) {
+        let input = ((formplayer1.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown1"))
+        input.setCustomValidity(''); 
+        checkedColor =(formplayer1.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown1")
+    }
+    else if ((formplayer1.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black1").checked == true){
+        let input2 = ((formplayer1.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black1"))
+        input2.setCustomValidity(''); 
+        checkedColor =(formplayer1.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black1")
+    }
+    else {
+        let input = ((formplayer1.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown1"))
+        let input2 = ((formplayer1.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black1"))
+        input.setCustomValidity('Invalid input')
+        input2.setCustomValidity('Invalid input')
+        pass = false
+    }
+    if (pass === true){
+        checkedSign = checkedSign.value
+    checkedColor = checkedColor.value
+    
+    
+    //let PlayerColor = formplayer1.querySelector(".PlayerColor>input")
+    //console.log(PlayerColor.value)
+
+    let divInfo = document.createElement("form")
+    divInfo.classList.add("alignLeft")
+    let labelName = document.createElement("label")
+    labelName.innerText = "Name: "
+    labelName.classList.add("alignLeft")
+    let divName = document.createElement("div")
+    divName.innerText = PlayerName1.value
+    divName.style.fontWeight = "bold"
+    labelName.appendChild(divName)
+    let labelSign = document.createElement("label")
+    labelSign.innerText = "Sign: "
+    labelSign.classList.add("alignLeft")
+    let divSign = document.createElement("div")
+    divSign.innerText = checkedSign
+    divSign.style.fontWeight = "bold"
+    labelSign.appendChild(divSign)
+    let labelColor = document.createElement("label")
+    labelColor.innerText = "Color: "
+    labelColor.classList.add("alignLeft")
+    let divColor = document.createElement("div")
+    divColor.innerText = checkedColor
+    divColor.style.fontWeight = "bold"
+    labelColor.appendChild(divColor)
+
+    divInfo.appendChild(labelName)
+    divInfo.appendChild(labelSign)
+    divInfo.appendChild(labelColor)
+    let general = document.querySelector(".player1")
+    
+    
+    general.removeChild(formplayer1)
+    general.appendChild(divInfo)
+    }
+    else {
+
+    }
+    
+})
+
+
+submitPlayer2.addEventListener("click", ()=>{
+    let pass = true;
     let formPlayer2 = document.querySelector(".player2>form")
     
     let PlayerName = formPlayer2.querySelector(".PlayerName>input")
+    if (PlayerName.value == ""){
+        PlayerName.setCustomValidity('Invalid input'); 
+        pass = false
+    }
+    else{
+        PlayerName.setCustomValidity(''); 
+        
+    }
     
     let checkedSign;
     if ((formPlayer2.querySelector(".PlayerSign>.Ocheck")).querySelector("#O").checked == true) {
+        let input = ((formPlayer2.querySelector(".PlayerSign>.Ocheck")).querySelector("#O"))
+        input.setCustomValidity('');
         checkedSign =(formPlayer2.querySelector(".PlayerSign>.Ocheck")).querySelector("#O")
     }
     else if ((formPlayer2.querySelector(".PlayerSign>.Xcheck")).querySelector("#X").checked == true){
+        let input2 = ((formPlayer2.querySelector(".PlayerSign>.Xcheck")).querySelector("#X"))
+        input2.setCustomValidity('');
         checkedSign =(formPlayer2.querySelector(".PlayerSign>.Xcheck")).querySelector("#X")
     }
-    checkedSign = checkedSign.value
+    else {
+        let input = ((formPlayer2.querySelector(".PlayerSign>.Ocheck")).querySelector("#O"))
+        let input2 = ((formPlayer2.querySelector(".PlayerSign>.Xcheck")).querySelector("#X"))
+        
+        input.setCustomValidity('Invalid input')
+        input2.setCustomValidity('Invalid input')
+        input2.setCustomValidity(''); 
+        pass = false
+    }
+
+    
     let checkedColor;
     if ((formPlayer2.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown").checked == true) {
+        let input = ((formPlayer2.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown"))
+        input.setCustomValidity(''); 
         checkedColor =(formPlayer2.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown")
     }
     else if ((formPlayer2.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black").checked == true){
+        let input2 = ((formPlayer2.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black"))
+        input2.setCustomValidity(''); 
         checkedColor =(formPlayer2.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black")
     }
+    else {
+        let input = ((formPlayer2.querySelector(".PlayerColor>div:nth-child(1)")).querySelector("#Brown"))
+        let input2 = ((formPlayer2.querySelector(".PlayerColor>div:nth-child(2)")).querySelector("#Black"))
+        input.setCustomValidity('Invalid input')
+        input2.setCustomValidity('Invalid input')
+        pass = false
+    }
+    if (pass === true){
+        checkedSign = checkedSign.value
     checkedColor = checkedColor.value
     
     
@@ -734,5 +871,10 @@ submitPlayer2.addEventListener("click", ()=>{
     
     general.removeChild(formPlayer2)
     general.appendChild(divInfo)
+    }
+    else {
+
+    }
+    
     
 })
