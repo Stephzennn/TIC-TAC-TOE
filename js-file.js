@@ -464,11 +464,13 @@ function Game ( round) {
         let changedNumber = Functions.findCoordinate(3, number)
         console.log("Here is the changed number",changedNumber)
         //Add diagonals 
+        
         if((number === 0) || (number === 2)){
             numberString = "";
             let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g + 1))
             let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g + 2))
             if ((gameArray[diagonal0] === gameArray[number]) && (gameArray[number] === gameArray[diagonal01])){
+                console.log("Here is the winning line Diagonal one " )
                 numbers = ([diagonal0, number , diagonal01]).sort()
                 
                 for(let x = 0; x < numbers.length; x++){
@@ -489,7 +491,7 @@ function Game ( round) {
                 console.log(diagonal2, diagonal21)
                 if(((diagonal2 >= 0)  && (diagonal2 <= 8))  && ((diagonal21 >= 0)  && (diagonal21 <= 8)) ) {
                     if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
-                    
+                        console.log("Here is the winning line Diagonal two " )
                         return true
                     }
                 }
@@ -501,43 +503,47 @@ function Game ( round) {
 
 
         //left  
-        let left = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g))
-        let left1 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g))
-        if(((left >= 0)  && (left <= 8))  && ((left1 >= 0)  && (left1 <= 8)) ) {
-            
+        
+        if((((changedNumber.f - 1) >= 0)  && ((changedNumber.f - 1) <= 2))  && (((changedNumber.f - 2) >= 0)  && ((changedNumber.f - 2) <= 2)) ) {
+            let left = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g))
+            let left1 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g))
             if ((gameArray[left] === gameArray[number]) && (gameArray[number] === gameArray[left1])){
-                
+                console.log("Here is the winning line Diagonal left " )
                 return true
             }
         }
 
         
         //right
-        let right = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g))
-        let right1 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g))
-        if(((right >= 0)  && (right <= 8))  && ((right1 >= 0)  && (right1 <= 8)) ) {
+        
+        if((((changedNumber.f + 1) >= 0)  && ((changedNumber.f + 1) <= 2))  && (((changedNumber.f + 2) >= 0)  && ((changedNumber.f + 2) <= 2)) ) {
+            let right = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g))
+            let right1 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g))
             if ((gameArray[right] === gameArray[number]) && (gameArray[number] === gameArray[right1])){
-                
+                console.log(right1)
+                console.log("Here is the winning line Diagonal right " )
                 return true
             }
         }
         
         //down
+        if((((changedNumber.g - 1) >= 0)  && ((changedNumber.g - 1) <= 2))  && (((changedNumber.g - 2) >= 0)  && ((changedNumber.g - 2) <= 2)) ) {
         let down = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g - 1))
         let down1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g - 2))
         
-        if(((down >= 0)  && (down <= 8))  && ((down1 >= 0)  && (down1 <= 8)) ) {
+        
             if ((gameArray[down] === gameArray[number]) && (gameArray[number] === gameArray[down1])){
-                
+                console.log("Here is the winning line Diagonal down " )
                 return true
             }
         }
         //up
-        let up = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g + 1))
-        let up1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g + 2))
-        if(((up >= 0)  && (up <= 8))  && ((up1 >= 0)  && (up1 <= 8)) ) {
+        
+        if((((changedNumber.g + 1) >= 0)  && ((changedNumber.g + 1) <= 2))  && (((changedNumber.g + 2) >= 0)  && ((changedNumber.g + 2) <= 2)) ) {
+            let up = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g + 1))
+            let up1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g + 2))
             if ((gameArray[up] === gameArray[number]) && (gameArray[number] === gameArray[up1])){
-                
+                console.log("Here is the winning line Diagonal up " )
                 return true
             }
         }
@@ -621,7 +627,18 @@ let player2 = player()
 let playerType = "player"
 let focusedPlayer;
 
+//=============================\
+gamproto = Game(1)
+let player1proto = player("hello", "O", "Brown")
+let player2proto = player("Hey", "X", "Black")
+gamproto.move(4,player1proto)
+gamproto.move(5,player1proto)
+gamproto.move(6,player1proto)
 
+console.log(gamproto.getArray())
+
+console.log(gamproto.checkWin())
+console.log("CHECKWIN")
 
 document.getElementById("O").addEventListener("click" ,()=> {
     
@@ -752,7 +769,7 @@ document.getElementById("Black1").addEventListener("click" ,()=> {
 console.log(document.getElementById("O").checked )
 
 let g = document.querySelector(".playGame>button")
-let body = document.querySelector("body")
+let body = document.querySelector(".body")
 
 g.addEventListener("click", () => {
     body.classList.remove("State1")
@@ -841,21 +858,33 @@ startGame.addEventListener("click", ()=>{
                     default:
                         break;
                 } 
+                
+                let boardss = document.querySelectorAll(".boards")
+                        for(let d = 0 ; d < 9; d++){
+                            let g = boardss[d]
+                            let clonedG = g.cloneNode(true)
+                            g.parentNode.replaceChild(clonedG, g)
+                        }
                 console.log(lineString)
                 let line = document.querySelector("." + lineString)
                 line.classList.add("active")
-
+                document.querySelector(".turn").innerText = "WINNER"
+                document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
             }
-            if (focusedPlayer === player1){
-                focusedPlayer = player2
-                turn = "PLAYER TWO"
+            else {
+                if (focusedPlayer === player1){
+                    focusedPlayer = player2
+                    turn = "PLAYER TWO"
+                }
+                else if (focusedPlayer === player2){
+                    focusedPlayer = player1
+                    turn = "PLAYER ONE"
+                }
+                document.querySelector(".turn").innerText = turn
+                document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
             }
-            else if (focusedPlayer === player2){
-                focusedPlayer = player1
-                turn = "PLAYER ONE"
-            }
-            document.querySelector(".turn").innerText = turn
-            document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+            
+            
             if (document.querySelector(".turn").textContent =="PLAYER TWO"){
                 if (playerType == "pc"){
                     randomnumber = focusedPlayer.move(newgame)
@@ -870,11 +899,10 @@ startGame.addEventListener("click", ()=>{
                         
                         g.innerText = h
                         
-                      }, 1000);
+                      }, 500);
                     
                     console.log(newgame.getArray())
                     if (newgame.checkWin() === true){
-                        console.log(newgame.getFinalNumber())
                         console.log("Someone won")
                         lineString = ""
                         switch(newgame.getFinalNumber()) {
@@ -905,21 +933,44 @@ startGame.addEventListener("click", ()=>{
                             default:
                                 break;
                         } 
+                        
+                        
+                        for(let d = 0 ; d < 9; d++){
+                            let element = boards[d]
+                            let clonedG = element.cloneNode(true)
+                            element.parentNode.replaceChild(clonedG, element)
+                        }
+                        let boardss = document.querySelectorAll(".boards")
+                        let g = boardss[randomnumber]
+                        let h = focusedPlayer.sign
+                        setTimeout(function() {
+                        
+                            g.innerText = h
+                            
+                          }, 1);
                         console.log(lineString)
+                        
                         let line = document.querySelector("." + lineString)
                         line.classList.add("active")
+                        
+                        document.querySelector(".turn").innerText = "WINNER"
+                        document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
         
                     }
-                    if (focusedPlayer === player1){
-                        focusedPlayer = player2
-                        turn = "PLAYER TWO"
+                    else{
+                        if (focusedPlayer === player1){
+                            focusedPlayer = player2
+                            turn = "PLAYER TWO"
+                        }
+                        else if (focusedPlayer === player2){
+                            focusedPlayer = player1
+                            turn = "PLAYER ONE"
+                        }
+                        document.querySelector(".turn").innerText = turn
+                        document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
                     }
-                    else if (focusedPlayer === player2){
-                        focusedPlayer = player1
-                        turn = "PLAYER ONE"
-                    }
-                    document.querySelector(".turn").innerText = turn
-                    document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+                    
+
                 }
             }
             

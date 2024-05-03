@@ -7,112 +7,114 @@
     <script src="js-file.js" defer></script>
     <link rel="stylesheet" href="minimal-table.css" type="text/css">
   </head>
-  <body class="State1">
-    <div class="title">Tic-Tac-Toe</div>
-    <div class="playGame">
-        <button type="reset">Play Game</button>
-        
-    </div>
-    <div class="State2LowerBox">
-    <div class="against">
-        AGAINST
-    </div>
-    <div class="playervspc">
-        <button>PLAYER</button>
-        <button>PC</button>
-    </div>
-    </div>
-    <div class="containerPlayer">
-        <div class="player1"><div class="player_title" style="text-align: center;">PLAYER ONE</div>
-            <form action="" method="post">
-                <label class="PlayerName1" for="g">Name:<input type="text"></label>
-                <label class="PlayerSign"  style="text-align: left;" for="g">SIGN:
-                    <div  class="Ocheck" >
-                        <input type="checkbox" id="O1" name="Sign" value="O">
-                        <label for="O">"O"</label>
-                      </div>
-                      
-                      <div class="Xcheck">
-                        <input type="checkbox" id="X1" name="SIGN" value="X">
-                        <label for="X">"X"</label>
-                      </div>
-                </label>
-                
-                  
-                  
-                  
-                <label class="PlayerColor" style="text-align: left;" for="g">Color:
-                    <div>
-                        <input type="checkbox" id="Brown1" name="color" value="Brown">
-                        <label id="Brown1" for="Brown">Brown</label>
-                      </div>
-                      
+  <body >
+    <div class="body State1" >
+      
+      <div class="title">Tic-Tac-Toe</div>
+      <div class="playGame">
+          <button type="reset">Play Game</button>
+      
+      </div>
+      <div class="State2LowerBox">
+      <div class="against">
+          AGAINST
+      </div>
+      <div class="playervspc">
+          <button>PLAYER</button>
+          <button>PC</button>
+      </div>
+      </div>
+      <div class="containerPlayer">
+          <div class="player1"><div class="player_title" style="text-align: center;">PLAYER ONE</div>
+              <form action="" method="post">
+                  <label class="PlayerName1" for="g">Name:<input type="text"></label>
+                  <label class="PlayerSign"  style="text-align: left;" for="g">SIGN:
+                      <div  class="Ocheck" >
+                          <input type="checkbox" id="O1" name="Sign" value="O">
+                          <label for="O">"O"</label>
+                        </div>
+      
+                        <div class="Xcheck">
+                          <input type="checkbox" id="X1" name="SIGN" value="X">
+                          <label for="X">"X"</label>
+                        </div>
+                  </label>
+      
+      
+      
+      
+                  <label class="PlayerColor" style="text-align: left;" for="g">Color:
                       <div>
-                        <input type="checkbox" id="Black1" name="color" value="Black">
-                        <label id="Black1" for="Black">Black</label>
-                      </div>
-                </label>
-                <button id="submitPlayerInfosubmit1" class="submitPlayerInfo" type="submit">SUBMIT</button>
-              </form>
-            
-        </div>
-        <div class="player2"><div class="player_title" style="text-align: center; ">PLAYER TWO</div>
-            <form  action="" method="post">
-                <label class="PlayerName" for="g">Name:<input type="text"></label>
-                <label class="PlayerSign" style="text-align: left;" for="g">SIGN:
-                    <div class="Ocheck">
-                        <input type="checkbox" id="O" name="Sign" value="O">
-                        <label for="O">"O"</label>
-                      </div>
-                      
-                      <div class="Xcheck">
-                        <input type="checkbox" id="X" name="SIGN" value="X">
-                        <label for="X">"X"</label>
-                      </div>
-                </label>
-                
-                  
-                  
-                  
-                <label class="PlayerColor" style="text-align: left;" for="g">Color:
-                    <div>
-                        <input type="checkbox" id="Brown" name="color" value="Brown">
-                        <label id="Brown" for="Brown">Brown</label>
-                      </div>
-                      
+                          <input type="checkbox" id="Brown1" name="color" value="Brown">
+                          <label id="Brown1" for="Brown">Brown</label>
+                        </div>
+      
+                        <div>
+                          <input type="checkbox" id="Black1" name="color" value="Black">
+                          <label id="Black1" for="Black">Black</label>
+                        </div>
+                  </label>
+                  <button id="submitPlayerInfosubmit1" class="submitPlayerInfo" type="submit">SUBMIT</button>
+                </form>
+      
+          </div>
+          <div class="player2"><div class="player_title" style="text-align: center; ">PLAYER TWO</div>
+              <form  action="" method="post">
+                  <label class="PlayerName" for="g">Name:<input type="text"></label>
+                  <label class="PlayerSign" style="text-align: left;" for="g">SIGN:
+                      <div class="Ocheck">
+                          <input type="checkbox" id="O" name="Sign" value="O">
+                          <label for="O">"O"</label>
+                        </div>
+      
+                        <div class="Xcheck">
+                          <input type="checkbox" id="X" name="SIGN" value="X">
+                          <label for="X">"X"</label>
+                        </div>
+                  </label>
+      
+      
+      
+      
+                  <label class="PlayerColor" style="text-align: left;" for="g">Color:
                       <div>
-                        <input type="checkbox" id="Black" name="color" value="Black">
-                        <label id="Black" for="Black">Black</label>
-                      </div>
-                </label>
-                <button id="submitPlayerInfosubmit2" class="submitPlayerInfo" type="submit">SUBMIT</button>
-              </form>
-        </div>
-
-    
-    <div class="GameBoard">
-        <div class="t1 boards">&nbsp;</div>
-        <div class="t2 boards">&nbsp;</div>
-        <div class="t3 boards">&nbsp;</div>
-        <div class="t4 boards">&nbsp;</div>
-        <div class="t5 boards">&nbsp;</div>
-        <div class="t6 boards">&nbsp;</div>
-        <div class="t7 boards">&nbsp;</div>
-        <div class="t8 boards">&nbsp;</div>
-        <div class="t9 boards">&nbsp;</div>
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-        <div class="line4"></div>
-        <div class="line5"></div>
-        <div class="line6"></div>
-        <div class="line7"></div>
-        <div class="line8"></div>
+                          <input type="checkbox" id="Brown" name="color" value="Brown">
+                          <label id="Brown" for="Brown">Brown</label>
+                        </div>
+      
+                        <div>
+                          <input type="checkbox" id="Black" name="color" value="Black">
+                          <label id="Black" for="Black">Black</label>
+                        </div>
+                  </label>
+                  <button id="submitPlayerInfosubmit2" class="submitPlayerInfo" type="submit">SUBMIT</button>
+                </form>
+          </div>
+      
+      <div class="GameBoard">
+          <div class="t1 boards">&nbsp;</div>
+          <div class="t2 boards">&nbsp;</div>
+          <div class="t3 boards">&nbsp;</div>
+          <div class="t4 boards">&nbsp;</div>
+          <div class="t5 boards">&nbsp;</div>
+          <div class="t6 boards">&nbsp;</div>
+          <div class="t7 boards">&nbsp;</div>
+          <div class="t8 boards">&nbsp;</div>
+          <div class="t9 boards">&nbsp;</div>
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+          <div class="line4"></div>
+          <div class="line5"></div>
+          <div class="line6"></div>
+          <div class="line7"></div>
+          <div class="line8"></div>
+      </div>
+      <div class="turn" > PLAYER ONE</div>
+      <div class="turn turnName" style="color: black; justify-self: flex-start;" > ESTIFANOS ZENEBE</div>
+      </div>
+      <div class="startGame"><button class="submitPlayerInfo" type="submit">START GAME</button></div>
     </div>
-    <div class="turn" > PLAYER ONE</div>
-    <div class="turn turnName" style="color: black; justify-self: flex-start;" > ESTIFANOS ZENEBE</div>
-    </div>
-    <div class="startGame"><button class="submitPlayerInfo" type="submit">START GAME</button></div>
     
   </body>
 </html>

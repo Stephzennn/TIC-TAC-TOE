@@ -254,33 +254,64 @@ transform: rotate(360deg);
 }
 
 body{
+  padding-left: 15%;
+  padding-right: 15%;
+  background-image: url("./chess-2730034_1280.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  min-height: 100vh;
+  background-color: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.body{
+  background-color: white;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-rows: 7fr 4fr 9fr;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border-radius: 15px;
 }
 
-body,.State1 {
+.body.State1 {
+  height: 100%;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-rows: 7fr 4fr 9fr;
   
 }
 
-body,.State2{
+.body.State2{
+  height: 100%;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
   color: white;
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   grid-template-rows: 7fr 4fr 9fr;
 }
 
-body,.State2_1{
+.body.State2_1{
+  height: 100%;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
   color: black;
   grid-template-columns: 2fr 5fr 2fr;
   grid-template-rows: 1fr 4fr 0.5fr;
   padding: 5%;
 }
 
-body,.State2_2{
+.body.State2_2{
+  height: 100%;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
   color: black;
   display: grid;
   grid-template-columns: 2fr 5fr 2fr;
@@ -288,7 +319,10 @@ body,.State2_2{
   padding: 5%;
 }
 
-body,.StateGame{
+.body.StateGame{
+  height: 100%;
+  grid-row: 1/-1;
+  grid-column: 1/-1;
   color:black;
   display: grid;
   grid-template-columns: 2fr 5fr 2fr;
