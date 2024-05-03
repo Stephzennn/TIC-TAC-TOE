@@ -584,10 +584,10 @@ function Game ( round) {
 
 
 function PCplayer(){
-    let pcplayer = player("PC", "o")
+    let pcplayer = player("PC", "O","Brown")
     
     return {
-        pcplayer:pcplayer,
+        
         move: function(Game) {
             let randomNum = Math.floor(Math.random() * 9);
             let arr = Game.getArray();
@@ -596,15 +596,31 @@ function PCplayer(){
             }
             return randomNum
         }
-    }
+        ,
+        setSign: function (newSign) {
+            this.pcplayer.setSign(newSign)
+            this.sign = pcplayer.sign
+        }
+        ,
+        setColor: function (newColor) {
+            this.pcplayer.setColor(newColor)
+            this.color = pcplayer.color
+        },
+        name:pcplayer.name,
+        sign:pcplayer.sign,
+        color:pcplayer.color,
+        pcplayer:pcplayer
+        
+     }
 }
 
-pcplayer = PCplayer()
 newgame = Game(1)
 let player1 = player()
 let player2 = player()
 
+let playerType = "player"
 let focusedPlayer;
+
 
 
 document.getElementById("O").addEventListener("click" ,()=> {
@@ -771,6 +787,7 @@ startGame.addEventListener("click", ()=>{
     document.querySelector(".turn").innerText = "PLAYER ONE"
     document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
     let boards = document.querySelectorAll(".boards")
+
     
     for (let x = 0; x < 9 ; x++){
         
@@ -780,13 +797,15 @@ startGame.addEventListener("click", ()=>{
         g.addEventListener("click", (event)=>{
             
             event.stopPropagation();
-            let s = focusedPlayer.color
+            
             let turn = ""
             newgame[x] = focusedPlayer.sign
+            let s = focusedPlayer.color
             g.innerText = focusedPlayer.sign
             g.classList.remove("Black")
             g.classList.remove("Brown")
             g.classList.add(s)
+            
             newgame.move(x,focusedPlayer)
             console.log(newgame.getArray())
             
@@ -837,7 +856,72 @@ startGame.addEventListener("click", ()=>{
             }
             document.querySelector(".turn").innerText = turn
             document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
-            
+            if (document.querySelector(".turn").textContent =="PLAYER TWO"){
+                if (playerType == "pc"){
+                    randomnumber = focusedPlayer.move(newgame)
+                    newgame.move(randomnumber,focusedPlayer)
+                    let g = boards[randomnumber]
+                    let s = focusedPlayer.color
+                    g.classList.remove("Black")
+                    g.classList.remove("Brown")
+                    g.classList.add(s)
+                    let h = focusedPlayer.sign
+                    setTimeout(function() {
+                        
+                        g.innerText = h
+                        
+                      }, 1000);
+                    
+                    console.log(newgame.getArray())
+                    if (newgame.checkWin() === true){
+                        console.log(newgame.getFinalNumber())
+                        console.log("Someone won")
+                        lineString = ""
+                        switch(newgame.getFinalNumber()) {
+                            case '012':
+                                lineString = "line1"
+                                break;
+                            case '345':
+                                lineString = "line2"
+                                break;
+                            case '678':
+                                lineString = "line3"
+                                break;
+                            case '036':
+                                lineString = "line4"
+                                break;
+                            case '147':
+                                lineString = "line5"
+                                break;
+                            case '258':
+                                lineString = "line6"
+                                break;
+                            case '048':
+                                lineString = "line7"
+                                break;
+                            case '246':
+                                lineString = "line8"
+                                break;
+                            default:
+                                break;
+                        } 
+                        console.log(lineString)
+                        let line = document.querySelector("." + lineString)
+                        line.classList.add("active")
+        
+                    }
+                    if (focusedPlayer === player1){
+                        focusedPlayer = player2
+                        turn = "PLAYER TWO"
+                    }
+                    else if (focusedPlayer === player2){
+                        focusedPlayer = player1
+                        turn = "PLAYER ONE"
+                    }
+                    document.querySelector(".turn").innerText = turn
+                    document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+                }
+            }
             
             
         })
@@ -956,6 +1040,25 @@ submitPlayer1.addEventListener("click", ()=>{
     
     general.removeChild(formplayer1)
     general.appendChild(divInfo)
+    if (body.classList.contains("State2_2")){
+        player2 = PCplayer()
+        
+        playerType = "pc"
+        if (checkedSign == "X"){
+            player2.setSign("O")
+        }
+        else{
+            player2.setSign("X")
+        }
+        
+        if (checkedColor == "Brown"){
+            player2.setColor("Black")
+        }
+        else{
+            player2.setColor("Brown")
+        }
+        
+    }
     player1.setName(PlayerName1.value)
     player1.setSign(checkedSign)
     player1.setColor(checkedColor)
@@ -1074,35 +1177,3 @@ submitPlayer2.addEventListener("click", ()=>{
     
     
 })
-
-
-lineString = ""
-switch("012") {
-    case '012':
-        lineString = "line1"
-        break;
-    case '345':
-        lineString = "line2"
-        break;
-    case '678':
-        lineString = "line3"
-        break;
-    case '036':
-        lineString = "line4"
-        break;
-    case '147':
-        lineString = "line5"
-        break;
-    case '258':
-        lineString = "line6"
-        break;
-    case '048':
-        lineString = "line7"
-        break;
-    case '246':
-        lineString = "line8"
-        break;
-    default:
-        break;
-}   
-
