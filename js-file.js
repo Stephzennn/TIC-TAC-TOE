@@ -158,7 +158,7 @@ function Game ( round) {
                 numbers = ([diagonal0, number , diagonal01]).sort()
                 
                 for(let x = 0; x < numbers.length; x++){
-                    numberString = numberString + p[x];
+                    numberString = numberString + numbers[x];
                 }
                 return true
             }
@@ -304,143 +304,142 @@ function PCplayer(){
      }
 }
 
-newgame = Game(1)
-let player1 = player()
-let player2 = player()
+let  initialise = function(boody) {
+    newgame = Game(1)
+    let player1 = player()
+    let player2 = player()
 
-let playerType = "player"
-let focusedPlayer;
-
-document.getElementById("O").addEventListener("click" ,()=> {
+    let playerType = "player"
+    let focusedPlayer;
+    let elementO = boody.querySelector("#O")
+    elementO.addEventListener("click" ,()=> {
     
-    if(document.getElementById("O").checked == true){
-        document.getElementById("X").checked = false
+    if(boody.querySelector("#O").checked == true){
+        boody.querySelector("#X").checked = false
     }
     
 })
 
 
-document.getElementById("X").addEventListener("click" ,()=> {
+boody.querySelector("#X").addEventListener("click" ,()=> {
     
-    if(document.getElementById("X").checked == true){
-        document.getElementById("O").checked = false
-    }
-   
-})
-
-
-document.getElementById("O1").addEventListener("click" ,()=> {
-    
-    if(document.getElementById("O1").checked == true){
-        document.getElementById("X1").checked = false
-    }
-    
-})
-
-
-document.getElementById("X1").addEventListener("click" ,()=> {
-    
-    if(document.getElementById("X1").checked == true){
-        document.getElementById("O1").checked = false
+    if(boody.querySelector("#X").checked == true){
+        boody.querySelector("#O").checked = false
     }
    
 })
 
-let stri = "";
-let p = ([2,3,1].sort())
-for(let x = 0; x < p.length; x++){
-    stri = stri + p[x];
-}
-console.log(stri)
 
-console.log(("123" == stri) )
-
-document.getElementById("O1").addEventListener("click" ,()=> {
+boody.querySelector("#O1").addEventListener("click" ,()=> {
     
-    if(document.getElementById("O1").checked == true){
-        document.getElementById("O").checked = false
-        document.getElementById("X").checked = true
+    if(boody.querySelector("#O1").checked == true){
+        boody.querySelector("#X1").checked = false
     }
     
 })
 
 
-document.getElementById("X1").addEventListener("click" ,()=> {
+boody.querySelector("#X1").addEventListener("click" ,()=> {
     
-    if(document.getElementById("X1").checked == true){
-        document.getElementById("X").checked = false
-        document.getElementById("O").checked = true
+    if(boody.querySelector("#X1").checked == true){
+        boody.querySelector("#O1").checked = false
     }
    
 })
 
 
 
-document.getElementById("O").addEventListener("click" ,()=> {
+boody.querySelector("#O1").addEventListener("click" ,()=> {
     
-    if(document.getElementById("O").checked == true){
-        document.getElementById("O1").checked = false
-        document.getElementById("X1").checked = true
+    if(boody.querySelector("#O1").checked == true){
+        boody.querySelector("#O").checked = false
+        boody.querySelector("#X").checked = true
     }
     
 })
 
 
-document.getElementById("X").addEventListener("click" ,()=> {
+boody.querySelector("#X1").addEventListener("click" ,()=> {
     
-    if(document.getElementById("X").checked == true){
-        document.getElementById("X1").checked = false
-        document.getElementById("O1").checked = true
-    }
-   
-})
-
-document.getElementById("Brown").addEventListener("click" ,()=> {
-    
-    if(document.getElementById("Brown").checked == true){
-        document.getElementById("Black").checked = false
-        document.getElementById("Brown1").checked = false
-        document.getElementById("Black1").checked = true
-    }
-    
-})
-
-
-document.getElementById("Black").addEventListener("click" ,()=> {
-    
-    if(document.getElementById("Black").checked == true){
-        document.getElementById("Brown").checked = false
-        document.getElementById("Black1").checked = false
-        document.getElementById("Brown1").checked = true
+    if(boody.querySelector("#X1").checked == true){
+        boody.querySelector("#X").checked = false
+        boody.querySelector("#O").checked = true
     }
    
 })
 
 
-document.getElementById("Brown1").addEventListener("click" ,()=> {
+
+boody.querySelector("#O").addEventListener("click" ,()=> {
     
-    if(document.getElementById("Brown1").checked == true){
-        document.getElementById("Black1").checked = false
-        document.getElementById("Brown").checked = false
-        document.getElementById("Black").checked = true
+    if(boody.querySelector("#O").checked == true){
+        boody.querySelector("#O1").checked = false
+        boody.querySelector("#X1").checked = true
     }
     
 })
 
 
-document.getElementById("Black1").addEventListener("click" ,()=> {
+boody.querySelector("#X").addEventListener("click" ,()=> {
     
-    if(document.getElementById("Black1").checked == true){
-        document.getElementById("Brown1").checked = false
-        document.getElementById("Black").checked = false
-        document.getElementById("Brown").checked = true
+    if(boody.querySelector("#X").checked == true){
+        boody.querySelector("#X1").checked = false
+        boody.querySelector("#O1").checked = true
     }
    
 })
-console.log(document.getElementById("O").checked )
 
-let g = document.querySelector(".playGame>button")
-let body = document.querySelector(".body")
+boody.querySelector("#Brown").addEventListener("click" ,()=> {
+    
+    if(boody.querySelector("#Brown").checked == true){
+        boody.querySelector("#Black").checked = false
+        boody.querySelector("#Brown1").checked = false
+        boody.querySelector("#Black1").checked = true
+    }
+    
+})
+
+
+boody.querySelector("#Black").addEventListener("click" ,()=> {
+    
+    if(boody.querySelector("#Black").checked == true){
+        boody.querySelector("#Brown").checked = false
+        boody.querySelector("#Black1").checked = false
+        boody.querySelector("#Brown1").checked = true
+    }
+   
+})
+
+
+boody.querySelector("#Brown1").addEventListener("click" ,()=> {
+    
+    if(boody.querySelector("#Brown1").checked == true){
+        boody.querySelector("#Black1").checked = false
+        boody.querySelector("#Brown").checked = false
+        boody.querySelector("#Black").checked = true
+    }
+    
+})
+
+
+boody.querySelector("#Black1").addEventListener("click" ,()=> {
+    
+    if(boody.querySelector("#Black1").checked == true){
+        boody.querySelector("#Brown1").checked = false
+        boody.querySelector("#Black").checked = false
+        boody.querySelector("#Brown").checked = true
+    }
+   
+})
+
+
+let g = boody.querySelector(".playGame>button")
+let body = boody.querySelector(".body")
+
+
+
+
+
 
 g.addEventListener("click", () => {
     body.classList.remove("State1")
@@ -448,8 +447,8 @@ g.addEventListener("click", () => {
     body.classList.add("State2")
 })
 
-let AgainstPlayer = document.querySelector(".playervspc>button:nth-child(1)")
-let AgainstPC = document.querySelector(".playervspc>button:nth-child(2)")
+let AgainstPlayer = boody.querySelector(".playervspc>button:nth-child(1)")
+let AgainstPC = boody.querySelector(".playervspc>button:nth-child(2)")
 
 AgainstPlayer.addEventListener("click", ()=>{
     body.classList.remove("State2")
@@ -463,7 +462,7 @@ AgainstPC.addEventListener("click", ()=>{
     body.classList.add("State2_2")
 })
 
-let startGame = document.querySelector(".startGame>button")
+let startGame = boody.querySelector(".startGame>button")
 focusedPlayer = player1
 startGame.addEventListener("click", ()=>{
     body.classList.remove("State2")
@@ -472,31 +471,31 @@ startGame.addEventListener("click", ()=>{
     body.classList.remove("State2_2")
     body.classList.add("StateGame")
     
-    document.querySelector(".turn").innerText = "PLAYER ONE"
-    document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
-    let boards = document.querySelectorAll(".boards")
+    boody.querySelector(".turn").innerText = "PLAYER ONE"
+    boody.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+    let boards = boody.querySelectorAll(".boards")
 
     
     for (let x = 0; x < 9 ; x++){
         
         
-        let g = boards[x]
-
+        let gg = boards[x]
+        let clonedG = gg.cloneNode(true)
+        gg.parentNode.replaceChild(clonedG, gg)
+        boards = boody.querySelectorAll(".boards")
+        gg = boards[x]
         
-        g.addEventListener("click", (event)=>{
+        gg.addEventListener("click", (event)=>{
             
             event.stopPropagation();
-            let clonedG = g.cloneNode(true)
-            g.parentNode.replaceChild(clonedG, g)
-            boards = document.querySelectorAll(".boards")
-            g = boards[x]
+            
             let turn = ""
             newgame[x] = focusedPlayer.sign
             let s = focusedPlayer.color
-            g.innerText = focusedPlayer.sign
-            g.classList.remove("Black")
-            g.classList.remove("Brown")
-            g.classList.add(s)
+            gg.innerText = focusedPlayer.sign
+            gg.classList.remove("Black")
+            gg.classList.remove("Brown")
+            gg.classList.add(s)
             
             newgame.move(x,focusedPlayer)
             console.log(newgame.getArray())
@@ -534,17 +533,17 @@ startGame.addEventListener("click", ()=>{
                         break;
                 } 
                 
-                let boardss = document.querySelectorAll(".boards")
+                let boardss = boody.querySelectorAll(".boards")
                         for(let d = 0 ; d < 9; d++){
-                            let g = boardss[d]
-                            let clonedG = g.cloneNode(true)
-                            g.parentNode.replaceChild(clonedG, g)
+                            let gr = boardss[d]
+                            let clonedG = gr.cloneNode(true)
+                            gr.parentNode.replaceChild(clonedG, gr)
                         }
                 console.log(lineString)
-                let line = document.querySelector("." + lineString)
+                let line = boody.querySelector("." + lineString)
                 line.classList.add("active")
-                document.querySelector(".turn").innerText = "WINNER"
-                document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+                boody.querySelector(".turn").innerText = "WINNER"
+                boody.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
             }
             else {
                 if (focusedPlayer === player1){
@@ -555,28 +554,28 @@ startGame.addEventListener("click", ()=>{
                     focusedPlayer = player1
                     turn = "PLAYER ONE"
                 }
-                document.querySelector(".turn").innerText = turn
-                document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+                boody.querySelector(".turn").innerText = turn
+                boody.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
             }
             
             
-            if (document.querySelector(".turn").textContent =="PLAYER TWO"){
+            if (boody.querySelector(".turn").textContent =="PLAYER TWO"){
                 if (playerType == "pc"){
                     randomnumber = focusedPlayer.move(newgame)
                     newgame.move(randomnumber,focusedPlayer)
-                    let g = boards[randomnumber]
-                    let clonedG = g.cloneNode(true)
-                    g.parentNode.replaceChild(clonedG, g)
-                    boards = document.querySelectorAll(".boards")
-                    g = boards[randomnumber]
+                    let ge = boards[randomnumber]
+                    let clonedG = ge.cloneNode(true)
+                    ge.parentNode.replaceChild(clonedG, ge)
+                    boards = boody.querySelectorAll(".boards")
+                    ge = boards[randomnumber]
                     let s = focusedPlayer.color
-                    g.classList.remove("Black")
-                    g.classList.remove("Brown")
-                    g.classList.add(s)
+                    ge.classList.remove("Black")
+                    ge.classList.remove("Brown")
+                    ge.classList.add(s)
                     let h = focusedPlayer.sign
                     setTimeout(function() {
                         
-                        g.innerText = h
+                        ge.innerText = h
                         
                       }, 500);
                     
@@ -619,21 +618,21 @@ startGame.addEventListener("click", ()=>{
                             let clonedG = element.cloneNode(true)
                             element.parentNode.replaceChild(clonedG, element)
                         }
-                        let boardss = document.querySelectorAll(".boards")
-                        let g = boardss[randomnumber]
+                        let boardss = boody.querySelectorAll(".boards")
+                        let gth = boardss[randomnumber]
                         let h = focusedPlayer.sign
                         setTimeout(function() {
                         
-                            g.innerText = h
+                            gth.innerText = h
                             
                           }, 1);
                         console.log(lineString)
                         
-                        let line = document.querySelector("." + lineString)
+                        let line = boody.querySelector("." + lineString)
                         line.classList.add("active")
                         
-                        document.querySelector(".turn").innerText = "WINNER"
-                        document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+                        boody.querySelector(".turn").innerText = "WINNER"
+                        boody.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
         
                     }
                     else{
@@ -645,8 +644,8 @@ startGame.addEventListener("click", ()=>{
                             focusedPlayer = player1
                             turn = "PLAYER ONE"
                         }
-                        document.querySelector(".turn").innerText = turn
-                        document.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
+                        boody.querySelector(".turn").innerText = turn
+                        boody.querySelector(".turnName").innerText = (focusedPlayer.name).toUpperCase()
                     }
                     
 
@@ -660,26 +659,29 @@ startGame.addEventListener("click", ()=>{
 
 })
 
-let submitPlayer2 = document.querySelector("#submitPlayerInfosubmit2")
+let submitPlayer2 = boody.querySelector("#submitPlayerInfosubmit2")
 submitPlayer2.addEventListener('click', function(e) {
     e.preventDefault();
     
 });
 
 
-let submitPlayer1 = document.querySelector("#submitPlayerInfosubmit1")
+let submitPlayer1 = boody.querySelector("#submitPlayerInfosubmit1")
+/*
 submitPlayer2.addEventListener('click', function(e) {
     e.preventDefault();
     
 });
 
+*/
 
 
-
-submitPlayer1.addEventListener("click", ()=>{
+submitPlayer1.addEventListener("click", function(e) {
+    e.preventDefault();
     let pass = true;
-    let formplayer1 = document.querySelector(".player1>form")
-    
+    let formplayer1 = boody.querySelector(".player1>form")
+    console.log("Here is the going to submit form")
+    console.log(formplayer1)
     let PlayerName1 = formplayer1.querySelector(".PlayerName1>input")
     if (PlayerName1.value == ""){
         PlayerName1.setCustomValidity('Invalid input'); 
@@ -765,7 +767,7 @@ submitPlayer1.addEventListener("click", ()=>{
     divInfo.appendChild(labelName)
     divInfo.appendChild(labelSign)
     divInfo.appendChild(labelColor)
-    let general = document.querySelector(".player1")
+    let general = boody.querySelector(".player1")
     
     
     general.removeChild(formplayer1)
@@ -804,7 +806,7 @@ submitPlayer1.addEventListener("click", ()=>{
 
 submitPlayer2.addEventListener("click", ()=>{
     let pass = true;
-    let formPlayer2 = document.querySelector(".player2>form")
+    let formPlayer2 = boody.querySelector(".player2>form")
     
     let PlayerName = formPlayer2.querySelector(".PlayerName>input")
     if (PlayerName.value == ""){
@@ -891,7 +893,7 @@ submitPlayer2.addEventListener("click", ()=>{
     divInfo.appendChild(labelName)
     divInfo.appendChild(labelSign)
     divInfo.appendChild(labelColor)
-    let general = document.querySelector(".player2")
+    let general = boody.querySelector(".player2")
     
     
     general.removeChild(formPlayer2)
@@ -905,5 +907,82 @@ submitPlayer2.addEventListener("click", ()=>{
 
     }
     
+    
+})
+}
+let player2_ = document.querySelector(".player2>form")
+let player1_ = document.querySelector(".player1>form")
+let GameBoard = document.querySelector(".GameBoard")
+let containerPlayerini = document.querySelector(".containerPlayer")
+let body = document.querySelector(".body")
+
+cloneplayer1 = player1_.cloneNode(true)
+cloneplayer2 = player2_.cloneNode(true)
+GameBoard = GameBoard.cloneNode(true)
+cloneContainer = containerPlayerini.cloneNode(true)
+clonebody = body.cloneNode(true)
+let firstBody = document.querySelector("body")
+initialise(firstBody)
+
+
+let title = document.querySelector(".title")
+title.addEventListener("click", ()=>{
+    newgame = Game(1)
+    player1 = player()
+    player2 = player()
+
+    playerType = "player"
+    
+    
+    /*
+    let player1parent = (document.querySelector(".player1"))
+    player1parent.replaceChildren()
+    let newDiv = document.createElement("div")
+    newDiv.textContent = "PLAYER ONE"
+    newDiv.classList.add("player_title")
+    player1parent.appendChild(newDiv)
+    player1parent.appendChild(cloneplayer1,player1_)
+    let player2parent = (document.querySelector(".player2"))
+    player2parent.replaceChildren()
+    let newDiv2 = document.createElement("div")
+    newDiv2.textContent = "PLAYER TWO"
+    newDiv2.classList.add("player_title")
+    
+    player2parent.appendChild(newDiv2)
+    player2parent.appendChild(cloneplayer2,player2_)
+   
+    
+    
+    newboard = document.querySelector(".GameBoard")
+    console.log(newboard)
+    console.log(GameBoard)
+    parentGameBoard.removeChild(newboard)
+    parentGameBoard.appendChild(GameBoard)
+    let parentGameBoard = (document.querySelector(".containerPlayer"))
+    let totalparent = (document.querySelector(".body"))
+    totalparent.removeChild(parentGameBoard)
+    totalparent.appendChild(cloneContainer)
+    */
+    let grandBody = (document.querySelector("body"))
+    let newBody = (document.querySelector(".body"))
+    
+    let newtitle = clonebody.querySelector(".title")
+    clonebody.replaceChild(title, newtitle)
+    clonebody.classList.remove("State2_1")
+    clonebody.classList.remove("State2_2")
+    clonebody.classList.remove("State2")
+    clonebody.classList.remove("StateGame")
+    clonebody.classList.add("State1")
+    grandBody.replaceChild(clonebody, newBody)
+    console.log(clonebody)
+    //grandBody.removeChild(newBody)
+    //grandBody.appendChild(clonebody)
+    
+    
+   
+    //console.log((document.querySelector(".player1")))
+    //player1_.parentNode.replaceChild(cloneplayer2,player2_)
+    
+    initialise(grandBody)
     
 })

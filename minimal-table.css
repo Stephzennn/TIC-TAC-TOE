@@ -895,11 +895,11 @@ clamp(30px, 2vw, 80px);
   height: auto; /* Reset height */
   width: auto; /* Reset width */
   display: flex;
-  flex-wrap: wrap;
+  
   flex-direction: column;
   
   width: clamp(260px, 40%, 100%);
-  height: clamp(500px, 700px, 200%);
+  height: clamp(500px, 600px, 150%);
   
 }
 .State2_2 .containerPlayer>.player1{
@@ -936,17 +936,17 @@ clamp(30px, 2vw, 80px);
   flex-wrap: wrap;
   flex-direction: column;
   width: clamp(260px, 40%, 100%);
-  height: clamp(500px, 700px, 200%);
+  height: clamp(500px, 600px, 200%);
   margin-top: 0%;
   margin-bottom: 0%;
   
   
 }
 .State2_1 .containerPlayer>.player1>form{
-  height: 70%;
+  height: 80%;
 }
 .State2_1 .containerPlayer>.player2>form{
-  height: 70%;
+  height: 80%;
 }
 
 .Brown {
@@ -989,7 +989,7 @@ clamp(30px, 2vw, 80px);
 }
 
 .State2_1 .player_title{
-  padding-top: 5%;
+  padding-top: 2%;
   
   color: #000;
   text-align: center;
@@ -999,6 +999,8 @@ clamp(30px, 2vw, 80px);
   opacity: 1; /* Set opacity to 1 */
   height: auto; /* Reset height */
   width: auto; /* Reset width */
+  text-align: center
+  ;
 }
 
 
