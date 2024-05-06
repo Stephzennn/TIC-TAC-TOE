@@ -913,11 +913,14 @@ submitPlayer2.addEventListener("click", ()=>{
 let player2_ = document.querySelector(".player2>form")
 let player1_ = document.querySelector(".player1>form")
 let GameBoard = document.querySelector(".GameBoard")
+let GameboardKids = document.querySelectorAll(".GameBoard>*")
+
 let containerPlayerini = document.querySelector(".containerPlayer")
 let body = document.querySelector(".body")
 
 cloneplayer1 = player1_.cloneNode(true)
 cloneplayer2 = player2_.cloneNode(true)
+//=================================================
 GameBoard = GameBoard.cloneNode(true)
 cloneContainer = containerPlayerini.cloneNode(true)
 clonebody = body.cloneNode(true)
@@ -974,7 +977,33 @@ title.addEventListener("click", ()=>{
     clonebody.classList.remove("StateGame")
     clonebody.classList.add("State1")
     grandBody.replaceChild(clonebody, newBody)
-    console.log(clonebody)
+    //=====================================================================================================
+    let clonedGameboard = document.createElement("div")
+    clonedGameboard.classList.add("GameBoard")
+    let classArray1 = ["t1","t2","t3","t4","t5","t6","t7","t8","t9","line1","line2","line3","line4","line5","line6","line7","line8"]
+    let classArray2 = ["boards","boards","boards","boards","boards","boards","boards","boards","boards"]
+    let index = 0;
+    GameboardKids.forEach((x)=>{
+        let tempNode = document.createElement("div")
+        tempNode.classList.add(classArray1[index])
+        
+        if (index < 9){
+            tempNode.classList.add(classArray2[index])
+        }
+        console.log(tempNode)
+        tempNode.innerHTML = "&nbsp;";
+        clonedGameboard.appendChild(tempNode)
+        index ++;
+        
+    })
+    //===============================================================================================================
+    let newPlayerform1 = grandBody.querySelector(".player1>form")
+    let newPlayerform2 = grandBody.querySelector(".player2>form")
+    let newGameboard = grandBody.querySelector(".GameBoard")
+    newPlayerform1.parentNode.replaceChild(cloneplayer1, newPlayerform1)
+    newPlayerform2.parentNode.replaceChild(cloneplayer2, newPlayerform2)
+    newGameboard.parentNode.replaceChild(clonedGameboard,newGameboard)
+    
     //grandBody.removeChild(newBody)
     //grandBody.appendChild(clonebody)
     
