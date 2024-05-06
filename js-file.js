@@ -51,7 +51,7 @@ function Game ( round) {
 
     function checkNumber(number) {
         let changedNumber = Functions.findCoordinate(3, number)
-        console.log(changedNumber)
+       
         //Add diagonals 
         if((number === 0) || (number === 2)){
             numberString = "";
@@ -146,7 +146,7 @@ function Game ( round) {
     }
     function check(number) {
         let changedNumber = Functions.findCoordinate(3, number)
-        console.log("Here is the changed number",changedNumber)
+      
         //Add diagonals 
         
         if((number === 0) || (number === 2)){
@@ -154,7 +154,7 @@ function Game ( round) {
             let diagonal0 = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g + 1))
             let diagonal01 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g + 2))
             if ((gameArray[diagonal0] === gameArray[number]) && (gameArray[number] === gameArray[diagonal01])){
-                console.log("Here is the winning line Diagonal one " )
+               
                 numbers = ([diagonal0, number , diagonal01]).sort()
                 
                 for(let x = 0; x < numbers.length; x++){
@@ -165,17 +165,14 @@ function Game ( round) {
 
             if(number == 2) {
 
-                console.log(changedNumber)
-                console.log(changedNumber.f - 1)
-                console.log(changedNumber.f + 1)
+                
 
                 let diagonal2 = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g + 1))
                 let diagonal21 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g + 2))
-                console.log("Diagonals")
-                console.log(diagonal2, diagonal21)
+               
                 if(((diagonal2 >= 0)  && (diagonal2 <= 8))  && ((diagonal21 >= 0)  && (diagonal21 <= 8)) ) {
                     if ((gameArray[diagonal2] === gameArray[number]) && (gameArray[number] === gameArray[diagonal21])){
-                        console.log("Here is the winning line Diagonal two " )
+                        
                         return true
                     }
                 }
@@ -192,7 +189,7 @@ function Game ( round) {
             let left = Functions.findNumber(3,(changedNumber.f - 1),(changedNumber.g))
             let left1 = Functions.findNumber(3,(changedNumber.f - 2),(changedNumber.g))
             if ((gameArray[left] === gameArray[number]) && (gameArray[number] === gameArray[left1])){
-                console.log("Here is the winning line Diagonal left " )
+                
                 return true
             }
         }
@@ -204,8 +201,7 @@ function Game ( round) {
             let right = Functions.findNumber(3,(changedNumber.f + 1),(changedNumber.g))
             let right1 = Functions.findNumber(3,(changedNumber.f + 2),(changedNumber.g))
             if ((gameArray[right] === gameArray[number]) && (gameArray[number] === gameArray[right1])){
-                console.log(right1)
-                console.log("Here is the winning line Diagonal right " )
+               
                 return true
             }
         }
@@ -217,7 +213,7 @@ function Game ( round) {
         
         
             if ((gameArray[down] === gameArray[number]) && (gameArray[number] === gameArray[down1])){
-                console.log("Here is the winning line Diagonal down " )
+                
                 return true
             }
         }
@@ -227,7 +223,7 @@ function Game ( round) {
             let up = Functions.findNumber(3,(changedNumber.f ),(changedNumber.g + 1))
             let up1 = Functions.findNumber(3,(changedNumber.f),(changedNumber.g + 2))
             if ((gameArray[up] === gameArray[number]) && (gameArray[number] === gameArray[up1])){
-                console.log("Here is the winning line Diagonal up " )
+                
                 return true
             }
         }
@@ -498,11 +494,10 @@ startGame.addEventListener("click", ()=>{
             gg.classList.add(s)
             
             newgame.move(x,focusedPlayer)
-            console.log(newgame.getArray())
+            
             
             if (newgame.checkWin() === true){
-                console.log(newgame.getFinalNumber())
-                console.log("Someone won")
+                
                 lineString = ""
                 switch(newgame.getFinalNumber()) {
                     case '012':
@@ -539,7 +534,7 @@ startGame.addEventListener("click", ()=>{
                             let clonedG = gr.cloneNode(true)
                             gr.parentNode.replaceChild(clonedG, gr)
                         }
-                console.log(lineString)
+                
                 let line = boody.querySelector("." + lineString)
                 line.classList.add("active")
                 boody.querySelector(".turn").innerText = "WINNER"
@@ -579,9 +574,8 @@ startGame.addEventListener("click", ()=>{
                         
                       }, 500);
                     
-                    console.log(newgame.getArray())
                     if (newgame.checkWin() === true){
-                        console.log("Someone won")
+                        
                         lineString = ""
                         switch(newgame.getFinalNumber()) {
                             case '012':
@@ -626,7 +620,7 @@ startGame.addEventListener("click", ()=>{
                             gth.innerText = h
                             
                           }, 1);
-                        console.log(lineString)
+                        
                         
                         let line = boody.querySelector("." + lineString)
                         line.classList.add("active")
@@ -680,8 +674,7 @@ submitPlayer1.addEventListener("click", function(e) {
     e.preventDefault();
     let pass = true;
     let formplayer1 = boody.querySelector(".player1>form")
-    console.log("Here is the going to submit form")
-    console.log(formplayer1)
+    
     let PlayerName1 = formplayer1.querySelector(".PlayerName1>input")
     if (PlayerName1.value == ""){
         PlayerName1.setCustomValidity('Invalid input'); 
@@ -737,8 +730,6 @@ submitPlayer1.addEventListener("click", function(e) {
     checkedColor = checkedColor.value
     
     
-    //let PlayerColor = formplayer1.querySelector(".PlayerColor>input")
-    //console.log(PlayerColor.value)
 
     let divInfo = document.createElement("form")
     divInfo.classList.add("alignLeft")
@@ -794,7 +785,6 @@ submitPlayer1.addEventListener("click", function(e) {
     player1.setName(PlayerName1.value)
     player1.setSign(checkedSign)
     player1.setColor(checkedColor)
-    console.log(player1)
 
     }
     else {
@@ -861,10 +851,6 @@ submitPlayer2.addEventListener("click", ()=>{
     if (pass === true){
         checkedSign = checkedSign.value
     checkedColor = checkedColor.value
-    
-    
-    //let PlayerColor = formPlayer2.querySelector(".PlayerColor>input")
-    //console.log(PlayerColor.value)
 
     let divInfo = document.createElement("form")
     divInfo.classList.add("alignLeft")
@@ -901,7 +887,7 @@ submitPlayer2.addEventListener("click", ()=>{
     player2.setName(PlayerName.value)
     player2.setSign(checkedSign)
     player2.setColor(checkedColor)
-    console.log(player2)
+    
     }
     else {
 
@@ -910,20 +896,11 @@ submitPlayer2.addEventListener("click", ()=>{
     
 })
 }
-let player2_ = document.querySelector(".player2>form")
-let player1_ = document.querySelector(".player1>form")
+
 let GameBoard = document.querySelector(".GameBoard")
 let GameboardKids = document.querySelectorAll(".GameBoard>*")
-
 let containerPlayerini = document.querySelector(".containerPlayer")
 let body = document.querySelector(".body")
-
-cloneplayer1 = player1_.cloneNode(true)
-cloneplayer2 = player2_.cloneNode(true)
-
-
-
-
 
 //=================================================
 GameBoard = GameBoard.cloneNode(true)
@@ -940,37 +917,6 @@ title.addEventListener("click", ()=>{
     player2 = player()
 
     playerType = "player"
-    
-    
-    /*
-    let player1parent = (document.querySelector(".player1"))
-    player1parent.replaceChildren()
-    let newDiv = document.createElement("div")
-    newDiv.textContent = "PLAYER ONE"
-    newDiv.classList.add("player_title")
-    player1parent.appendChild(newDiv)
-    player1parent.appendChild(cloneplayer1,player1_)
-    let player2parent = (document.querySelector(".player2"))
-    player2parent.replaceChildren()
-    let newDiv2 = document.createElement("div")
-    newDiv2.textContent = "PLAYER TWO"
-    newDiv2.classList.add("player_title")
-    
-    player2parent.appendChild(newDiv2)
-    player2parent.appendChild(cloneplayer2,player2_)
-   
-    
-    
-    newboard = document.querySelector(".GameBoard")
-    console.log(newboard)
-    console.log(GameBoard)
-    parentGameBoard.removeChild(newboard)
-    parentGameBoard.appendChild(GameBoard)
-    let parentGameBoard = (document.querySelector(".containerPlayer"))
-    let totalparent = (document.querySelector(".body"))
-    totalparent.removeChild(parentGameBoard)
-    totalparent.appendChild(cloneContainer)
-    */
     let grandBody = (document.querySelector("body"))
     let newBody = (document.querySelector(".body"))
     
@@ -995,7 +941,7 @@ title.addEventListener("click", ()=>{
         if (index < 9){
             tempNode.classList.add(classArray2[index])
         }
-        console.log(tempNode)
+        
         tempNode.innerHTML = "&nbsp;";
         clonedGameboard.appendChild(tempNode)
         index ++;
@@ -1012,13 +958,7 @@ title.addEventListener("click", ()=>{
     newPlayerform2.parentNode.replaceChild(clone2, newPlayerform2)
     newGameboard.parentNode.replaceChild(clonedGameboard,newGameboard)
     
-    //grandBody.removeChild(newBody)
-    //grandBody.appendChild(clonebody)
     
-    
-   
-    //console.log((document.querySelector(".player1")))
-    //player1_.parentNode.replaceChild(cloneplayer2,player2_)
     
     initialise(grandBody)
     
@@ -1058,9 +998,9 @@ function createplayer1form (number = 0) {
 
     tempDiv1.appendChild(tempinput1)
     tempDiv1.appendChild(tempLabel)
-    //console.log(tempDiv1)
+   
     let g = document.querySelector(".Ocheck")
-    //console.log(g)
+    
     
     //==========================================================
 
@@ -1085,10 +1025,7 @@ function createplayer1form (number = 0) {
 
     tempDiv2.appendChild(tempinput2)
     tempDiv2.appendChild(tempLabel2)
-    //console.log(tempDiv2)
-    let g2 = document.querySelector(".Xcheck")
     
-
     
     //=================================================
 
@@ -1099,7 +1036,7 @@ function createplayer1form (number = 0) {
     labelGeneral1.innerText = "SIGN:"
     labelGeneral1.appendChild(tempDiv1)
     labelGeneral1.appendChild(tempDiv2)
-    //console.log(labelGeneral1)
+    
     //========================================================
     let labelGeneral2 = document.createElement("label")
     labelGeneral2.classList.add(playername)
@@ -1109,7 +1046,7 @@ function createplayer1form (number = 0) {
     let inputName = document.createElement("input")
     inputName.type = "text"
     labelGeneral2.appendChild(inputName)
-    //console.log(labelGeneral2)
+    
     
 
     //========================================================
