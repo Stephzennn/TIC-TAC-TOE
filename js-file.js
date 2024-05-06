@@ -920,6 +920,11 @@ let body = document.querySelector(".body")
 
 cloneplayer1 = player1_.cloneNode(true)
 cloneplayer2 = player2_.cloneNode(true)
+
+
+
+
+
 //=================================================
 GameBoard = GameBoard.cloneNode(true)
 cloneContainer = containerPlayerini.cloneNode(true)
@@ -1000,8 +1005,11 @@ title.addEventListener("click", ()=>{
     let newPlayerform1 = grandBody.querySelector(".player1>form")
     let newPlayerform2 = grandBody.querySelector(".player2>form")
     let newGameboard = grandBody.querySelector(".GameBoard")
-    newPlayerform1.parentNode.replaceChild(cloneplayer1, newPlayerform1)
-    newPlayerform2.parentNode.replaceChild(cloneplayer2, newPlayerform2)
+    let clone1 = createplayer1form (1)
+    let clone2 = createplayer1form()
+    
+    newPlayerform1.parentNode.replaceChild(clone1, newPlayerform1)
+    newPlayerform2.parentNode.replaceChild(clone2, newPlayerform2)
     newGameboard.parentNode.replaceChild(clonedGameboard,newGameboard)
     
     //grandBody.removeChild(newBody)
@@ -1015,3 +1023,158 @@ title.addEventListener("click", ()=>{
     initialise(grandBody)
     
 })
+
+function createplayer1form (number = 0) {
+    let xid = "X"
+    let oid = "O"
+    let brownid = "Brown"
+    let blackid = "Black"
+    let submitid = "submitPlayerInfosubmit2"
+    let playername = "PlayerName"
+    if (number == 1) {
+        xid = "X1"
+        oid = "O1"
+        brownid = "Brown1"
+        blackid = "Black1"
+        submitid = "submitPlayerInfosubmit1"
+        playername = "PlayerName1"
+    }
+    //=========================================================
+    //Ocheck div
+    let tempDiv1 = document.createElement("div")
+    tempDiv1.classList.add("Ocheck")
+
+    let tempinput1 = document.createElement("input")
+    tempinput1.type = "checkbox";
+    tempinput1.id = oid
+    tempinput1.name = "Sign"
+    tempinput1.value = "O"
+
+
+    let tempLabel = document.createElement("label")
+    tempLabel.htmlFor = "O"
+    tempLabel.innerText = "O"
+
+
+    tempDiv1.appendChild(tempinput1)
+    tempDiv1.appendChild(tempLabel)
+    //console.log(tempDiv1)
+    let g = document.querySelector(".Ocheck")
+    //console.log(g)
+    
+    //==========================================================
+
+
+    //================================================================
+    //Xcheck div
+    let tempDiv2 = document.createElement("div")
+    tempDiv2.classList.add("Xcheck")
+
+    let tempinput2 = document.createElement("input")
+    tempinput2.type = "checkbox";
+    tempinput2.id = xid
+    tempinput2.name = "SIGN"
+    tempinput2.value = "X"
+
+
+
+    let tempLabel2 = document.createElement("label")
+    tempLabel2.htmlFor = "X"
+    tempLabel2.innerText = "X"
+
+
+    tempDiv2.appendChild(tempinput2)
+    tempDiv2.appendChild(tempLabel2)
+    //console.log(tempDiv2)
+    let g2 = document.querySelector(".Xcheck")
+    
+
+    
+    //=================================================
+
+    let labelGeneral1 = document.createElement("label")
+    labelGeneral1.classList.add("PlayerSign")
+    labelGeneral1.style = "text-align: left;"
+    labelGeneral1.htmlFor = "g"
+    labelGeneral1.innerText = "SIGN:"
+    labelGeneral1.appendChild(tempDiv1)
+    labelGeneral1.appendChild(tempDiv2)
+    //console.log(labelGeneral1)
+    //========================================================
+    let labelGeneral2 = document.createElement("label")
+    labelGeneral2.classList.add(playername)
+    labelGeneral2.htmlFor = "g"
+    labelGeneral2.innerText = "Name:"
+
+    let inputName = document.createElement("input")
+    inputName.type = "text"
+    labelGeneral2.appendChild(inputName)
+    //console.log(labelGeneral2)
+    
+
+    //========================================================
+    let brownDiv = document.createElement("div")
+
+    let inputBrown = document.createElement("input")
+    inputBrown.type = "checkbox"
+    inputBrown.id = brownid
+    inputBrown.name = "color"
+    inputBrown.value = "Brown"
+    let labelBrown = document.createElement("label")
+    labelBrown.id = brownid
+    labelBrown.htmlFor = "Brown"
+    labelBrown.innerText = "Brown"
+
+    brownDiv.appendChild(inputBrown)
+    brownDiv.appendChild(labelBrown)
+    //=========================================================
+    let BlackDiv = document.createElement("div")
+
+
+    let inputBlack = document.createElement("input")
+    inputBlack.type = "checkbox"
+    inputBlack.id = blackid
+    inputBlack.name = "color"
+    inputBlack.value = "Black"
+    let labelBlack = document.createElement("label")
+    labelBlack.id = blackid
+    labelBlack.htmlFor = "Black"
+    labelBlack.innerText = "Black"
+
+    BlackDiv.appendChild(inputBlack)
+    BlackDiv.appendChild(labelBlack)
+    //===========================================================
+    let PlayerColorlabel = document.createElement("label")
+    PlayerColorlabel.classList.add("PlayerColor")
+    PlayerColorlabel.htmlFor = "g"
+    PlayerColorlabel.style =  "text-align: left;"
+    
+    PlayerColorlabel.innerText = "Color:"
+    PlayerColorlabel.appendChild(brownDiv)
+    PlayerColorlabel.appendChild(BlackDiv)
+    
+    //========================================================
+    //button
+    let PlayerOneButton = document.createElement("button")
+    PlayerOneButton.id = submitid
+    PlayerOneButton.classList.add("submitPlayerInfo")
+    PlayerOneButton.type = "submit"
+    PlayerOneButton.innerText = "SUBMIT"
+    //=========================================================
+    //form
+    let topForm = document.createElement("form")
+    topForm.action = ""
+    topForm.method = "post"
+    topForm.appendChild(labelGeneral2)
+    topForm.appendChild(labelGeneral1)
+    topForm.appendChild(PlayerColorlabel)
+    topForm.appendChild(PlayerOneButton)
+    
+
+
+    return topForm
+    
+}
+
+
+
